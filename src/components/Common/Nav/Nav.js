@@ -1,11 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import './Nav.css'
+import { BiUserCircle } from 'react-icons/bi';
 import { BsFillMoonStarsFill, BsFillSunFill } from 'react-icons/bs'
+import { AuthContext } from "../../../contexts/UserContext";
 
 const Nav = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [theme, setTheme] = useState("light-theme");
+    const { user, logOut } = useContext(AuthContext);
 
 
 
@@ -20,6 +23,12 @@ const Nav = () => {
         else {
             setTheme("dark-theme")
         }
+    }
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(e => console.error(e))
     }
 
     return (
@@ -95,6 +104,35 @@ const Nav = () => {
                                         </div>
                                 }
                             </Link>
+                        </li>
+                        <li>
+                            <div to='/login'
+                                className="cursor-pointer bg-slate-500 flex items-center justify-center gap-2 py-1 px-2 text-white hover:bg-sky-700 duration-200 rounded shadow-md"
+
+                            >
+                                {
+                                    user?.uid ?
+                                        <div className="flex items-center">
+                                            <Link to='/profile'>
+                                                {
+                                                    user?.photoURL ?
+                                                        <div className="flex items-center" title={user?.displayName ? user.displayName : 'No Name'}>
+                                                            <img className="max-w-8 max-h-8 mr-2 border border-sky-300" src={user?.photoURL} alt="" />
+                                                        </div>
+                                                        :
+                                                        <div className="flex items-center" title={user?.displayName ? user.displayName : 'No Name'}>
+                                                            <BiUserCircle className="w-7 h-7 border border-sky-300 mr-2 rounded-md" />
+                                                        </div>
+                                                }
+                                            </Link>
+                                            <button onClick={handleLogOut}>Log Out</button>
+                                        </div>
+                                        :
+                                        <>
+                                            <Link to='/login'>Log In</Link>
+                                        </>
+                                }
+                            </div>
                         </li>
                     </ul>
                     <div className="lg:hidden flex items-center">
@@ -212,6 +250,23 @@ const Nav = () => {
                                                             </div>
                                                     }
                                                 </Link>
+                                            </li>
+                                            <li>
+                                                <div to='/login'
+                                                    className="cursor-pointer bg-slate-500 flex items-center justify-center gap-2 h-12 px-2 text-white hover:bg-sky-700 duration-200 rounded shadow-md"
+
+                                                >
+                                                    {
+                                                        user?.uid ?
+                                                            <div className="flex items-center">
+                                                                <button onClick={handleLogOut}>Log Out</button>
+                                                            </div>
+                                                            :
+                                                            <>
+                                                                <Link to='/login'>Log In</Link>
+                                                            </>
+                                                    }
+                                                </div>
                                             </li>
                                         </ul>
                                     </nav>
