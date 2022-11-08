@@ -66,6 +66,37 @@ const Nav = () => {
                                 Services
                             </NavLink>
                         </li>
+                        {
+                            user?.uid ?
+                                <li>
+                                    <NavLink
+                                        to="/AddService"
+                                        aria-label="AddService"
+                                        title="AddService"
+                                        className={`font-medium tracking-wide text-white hover:text-sky-300`}
+                                    >
+                                        Add Service
+                                    </NavLink>
+                                </li>
+                                :
+                                undefined
+                        }
+                        {
+                            user?.uid ?
+                                <li>
+                                    <NavLink
+                                        to="/MyReviews"
+                                        aria-label="MyReviews"
+                                        title="MyReviews"
+                                        className={`font-medium tracking-wide text-white hover:text-sky-300`}
+                                    >
+                                        My Reviews
+                                    </NavLink>
+                                </li>
+                                :
+                                undefined
+                        }
+
                         <li>
                             <NavLink
                                 to='/faq'
@@ -213,6 +244,37 @@ const Nav = () => {
                                                     Services
                                                 </NavLink>
                                             </li>
+                                            {
+                                                user?.uid ?
+                                                    <li>
+                                                        <NavLink
+                                                            to="/AddService"
+                                                            aria-label="AddService"
+                                                            title="AddService"
+                                                            className={`font-medium tracking-wide`}
+                                                        >
+                                                            Add Service
+                                                        </NavLink>
+                                                    </li>
+                                                    :
+                                                    undefined
+                                            }
+                                            {
+                                                user?.uid ?
+                                                    <li>
+                                                        <NavLink
+                                                            to="/MyReviews"
+                                                            aria-label="MyReviews"
+                                                            title="MyReviews"
+                                                            className={`font-medium tracking-wide`}
+                                                        >
+                                                            My Reviews
+                                                        </NavLink>
+                                                    </li>
+                                                    :
+                                                    undefined
+                                            }
+
                                             <li>
                                                 <NavLink to='/faq'
                                                     aria-label="FAQ"
