@@ -32,7 +32,7 @@ const Profile = () => {
                 toast.error("You're not logged in")
             }
         }
-    }, [loading])
+    }, [loading, user])
 
     const handleUpdateUserProfile = (event) => {
 
