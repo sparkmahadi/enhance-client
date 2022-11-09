@@ -13,21 +13,21 @@ const ServiceDetails = () => {
     const service = useLoaderData();
     const { _id, name, description, img, price } = service;
 
-    useEffect(()=>{
+    useEffect(() => {
         fetch(`http://localhost:5000/reviews/${_id}`)
-        .then(res => res.json())
-        .then(data => {
-            setReviews(data);
-        })
-    },[_id])
+            .then(res => res.json())
+            .then(data => {
+                setReviews(data);
+            })
+    }, [_id])
 
     // console.log(reviews);
 
-    const reviewAddingHandler = (userReview) =>{
+    const reviewAddingHandler = (userReview) => {
         const newReviews = [...reviews, userReview];
         setReviews(newReviews);
     }
-    
+
     return (
         <div>
             {/* service details section */}
@@ -55,19 +55,19 @@ const ServiceDetails = () => {
                 <h2 className='bg-gray-800 text-white px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 text-2xl uppercase text-center rounded-lg'>Reviews</h2>
 
                 <div>
-                    <div className='grid lg:grid-cols-2 my-10 gap-10'>
-                        {
-                            reviews.length > 0 ?
-                                reviews.map((rvw, idx) => <ReviewDetails key={idx} rvw={rvw}></ReviewDetails>)
-                                :
-                                <p className='text-center'>No Reviews Yet...</p>
-                        }
-                    </div>
+                    {
+                        reviews.length > 0 ?
+                            <div className='grid lg:grid-cols-2 my-10 gap-10'>
+                                {reviews.map((rvw, idx) => <ReviewDetails key={idx} rvw={rvw}></ReviewDetails>)}
+                            </div>
+                            :
+                            <p className='text-center text-xl my-2 font-semibold'>No Reviews Yet...</p>
+                    }
 
                     {
-                        user?.uid ? <AddReview id={_id} reviewAddingHandler={reviewAddingHandler}></AddReview>
+                        user?.uid ? <AddReview id={_id} name={name} reviewAddingHandler={reviewAddingHandler}></AddReview>
                             :
-                            <p className='text-center text-xl font-semibold bg-slate-700 text-white p-2 lg:w-1/3 mx-auto rounded-lg'>Please Login to add a review!!!</p>
+                            <Link to={'/login'}><p className='text-center text-xl font-semibold bg-slate-700 text-white p-2 lg:w-1/3 mx-auto rounded-lg'>Please Login to add a review!!!</p></Link>
                     }
                 </div>
 

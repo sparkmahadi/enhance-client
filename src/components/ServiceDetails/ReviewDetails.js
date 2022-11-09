@@ -7,7 +7,12 @@ const ReviewDetails = ({ rvw }) => {
             <div className="flex justify-between p-4">
                 <div className="flex space-x-4">
                     <div>
-                        <img src={reviewerImg} alt="" className="object-cover w-12 h-12 rounded-full bg-gray-500" />
+                        {
+                            reviewerImg ? 
+                            <img src={reviewerImg} alt="" className="object-cover w-12 h-12 rounded-full bg-gray-500" />
+                            :
+                            <img src="https://i.ibb.co/G9HgLH0/no-photo.jpg" className='w-12 h-12 rounded-full' alt="" />
+                        }
                     </div>
                     <div>
                         <h4 className="font-bold">{reviewerName}</h4>

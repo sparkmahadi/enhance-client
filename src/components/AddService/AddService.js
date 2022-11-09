@@ -21,7 +21,11 @@ const AddService = () => {
             body: JSON.stringify(service)
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                if(data.acknowledged){
+                    alert('Service is added')
+                }
+            })
 
     }
 

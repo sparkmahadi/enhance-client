@@ -14,7 +14,7 @@ const Footer = () => {
               title="Enhance"
               className="inline-flex items-center"
             >
-              <img className='w-8 h-8' src="../../logo.png" alt="" />
+              <img className='w-8 h-8' src="https://i.ibb.co/ynnXHCP/logo.png" alt="" />
               <span className="ml-2 text-xl font-bold tracking-wide  uppercase">
                 Enhance
               </span>

@@ -40,7 +40,7 @@ const Nav = () => {
                         title="Enhance"
                         className="inline-flex items-center"
                     >
-                        <img className="h-8 w-8 text-white" src="../../logo.png" alt="" />
+                        <img className="h-8 w-8 text-white" src="https://i.ibb.co/ynnXHCP/logo.png" alt="" />
                         <span className="ml-2 text-xl font-bold tracking-wide text-white hover:text-sky-300">
                             Enhance
                         </span>
@@ -85,7 +85,7 @@ const Nav = () => {
                             user?.uid ?
                                 <li>
                                     <NavLink
-                                        to="/MyReviews"
+                                        to={`/MyReviews/${user?.email}`}
                                         aria-label="MyReviews"
                                         title="MyReviews"
                                         className={`font-medium tracking-wide text-white hover:text-sky-300`}
@@ -199,9 +199,9 @@ const Nav = () => {
                                                 className="inline-flex items-center"
                                             >
                                                 {
-                                                    theme === 'dark-theme' ? <img className="h-6 w-6" src="../../logo.png" alt="" />
+                                                    theme === 'dark-theme' ? <img className="h-6 w-6" src="https://i.ibb.co/ynnXHCP/logo.png" alt="" />
                                                         :
-                                                        <img className="h-6 w-6" src="../../logo-black.png" alt="" />
+                                                        <img className="h-6 w-6" src="https://i.ibb.co/ynnXHCP/logo.png" alt="" />
                                                 }
                                                 <span className="ml-2 text-xl font-bold tracking-wide uppercase">
                                                     Enhance

@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useContext, useEffect } from 'react';
 import { AuthContext } from '../../contexts/UserContext';
 
-const AddReview = ({ id, reviewAddingHandler }) => {
+const AddReview = ({ id, name, reviewAddingHandler }) => {
     const { user } = useContext(AuthContext);
     // console.log(user);
 
@@ -14,7 +14,12 @@ const AddReview = ({ id, reviewAddingHandler }) => {
             newReview.reviewerImg = user.photoURL;
             setUserReview(newReview);
         }
-    }, [user.photoURL])
+        if (user.email) {
+            const newReview = { ...userReview };
+            newReview.reviewerEmail = user.email;
+            setUserReview(newReview);
+        }
+    }, [user.photoURL, user.email])
 
     const handleUpdateReview = event => {
         event.preventDefault();
@@ -48,6 +53,7 @@ const AddReview = ({ id, reviewAddingHandler }) => {
         const newReview = { ...userReview };
         newReview[field] = value;
         newReview.serviceId = id;
+        newReview.serviceName = name;
         setUserReview(newReview);
     }
     // console.log(userReview);
