@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useContext, useEffect } from 'react';
 import { AuthContext } from '../../contexts/UserContext';
 
-const AddReview = ({ id, name, reviewAddingHandler }) => {
+const AddReview = ({ id, name, reviewAddingHandler, setRefetch }) => {
     const { user } = useContext(AuthContext);
     // console.log(user);
 
@@ -21,7 +21,10 @@ const AddReview = ({ id, name, reviewAddingHandler }) => {
         }
     }, [user.photoURL, user.email])
 
-    const handleUpdateReview = event => {
+
+
+
+    const handleAddReview = event => {
         event.preventDefault();
 
         console.log(userReview);
@@ -39,7 +42,8 @@ const AddReview = ({ id, name, reviewAddingHandler }) => {
             .then(data => {
                 console.log(data);
                 if (data.acknowledged) {
-                    alert('review added')
+                    alert('review added');
+                    setRefetch(true);
                     event.target.reset();
                 }
             })
@@ -64,7 +68,7 @@ const AddReview = ({ id, name, reviewAddingHandler }) => {
                     <h2 className="text-3xl font-semibold text-center mb-5">Your opinion matters!</h2>
 
                     <div className="flex flex-col w-full">
-                        <form onSubmit={handleUpdateReview}>
+                        <form onSubmit={handleAddReview}>
                             <input onBlur={handleInputChange} type="text" name='reviewerName' className='mb-5 rounded-lg w-1/2 mx-auto block p-2 text-gray-100 bg-gray-800' placeholder='Your Name' />
                             <input onBlur={handleInputChange} type="text" name='reviewTitle' className='mb-5 rounded-lg w-1/2 mx-auto block p-2 text-gray-100 bg-gray-800' placeholder='Your Feedback Title' />
                             <textarea onBlur={handleInputChange} name='description' rows="3" placeholder="Comments..." className="p-4 rounded-md resize-none text-gray-100 bg-gray-800 className='mb-5 rounded-lg w-1/2 mx-auto block p-2'"></textarea>

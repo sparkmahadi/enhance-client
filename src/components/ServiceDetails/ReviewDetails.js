@@ -1,22 +1,24 @@
 import React from 'react';
 
-const ReviewDetails = ({ rvw }) => {
-    const { reviewerName, reviewTitle, description, reviewerImg } = rvw;
+const ReviewDetails = ({ rvw, setRefetch }) => {
+    const { reviewerName, reviewTitle, description, reviewerImg, createdAt } = rvw;
+    const convertedDate = new Date(createdAt);
+    console.log(convertedDate);
     return (
         <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 bg-gray-900 text-gray-100">
             <div className="flex justify-between p-4">
                 <div className="flex space-x-4">
                     <div>
                         {
-                            reviewerImg ? 
-                            <img src={reviewerImg} alt="" className="object-cover w-12 h-12 rounded-full bg-gray-500" />
-                            :
-                            <img src="https://i.ibb.co/G9HgLH0/no-photo.jpg" className='w-12 h-12 rounded-full' alt="" />
+                            reviewerImg ?
+                                <img src={reviewerImg} alt="" className="object-cover w-12 h-12 rounded-full bg-gray-500" />
+                                :
+                                <img src="https://i.ibb.co/G9HgLH0/no-photo.jpg" className='w-12 h-12 rounded-full' alt="" />
                         }
                     </div>
                     <div>
                         <h4 className="font-bold">{reviewerName}</h4>
-                        <span className="text-xs text-gray-400">2 days ago</span>
+                        <span className="text-xs text-gray-400">{convertedDate.toUTCString()}</span>
                     </div>
                 </div>
                 <div className="flex items-center space-x-2 text-yellow-500">

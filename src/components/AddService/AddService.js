@@ -54,33 +54,33 @@ const AddService = () => {
                 pauseOnHover
                 theme="light"
             />
-            <div className="flex flex-col p-6 rounded-md sm:p-10 bg-gray-900 text-gray-100">
+            <div className="flex flex-col p-6 rounded-md sm:p-10 second-bg text-gray-100">
                 <div className="mb-8 text-center">
                     <h1 className="my-3 text-4xl font-bold">Add A New Service</h1>
                 </div>
                 <form onSubmit={handleSubmit} className="space-y-12 ng-untouched ng-pristine ng-valid lg:px-36">
                     <div className="space-y-4">
                         <div>
-                            <label htmlFor="name" className="block mb-2 text-sm">Service Name</label>
-                            <input type="name" name="name" id="name" placeholder="Enter Service Name" className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900 text-gray-100" required />
+                            <label htmlFor="name" className="block mb-2 text-md">Service Name</label>
+                            <input type="name" name="name" id="name" placeholder="Enter Service Name" className="w-full px-3 py-2 border rounded-md border-gray-700 text-gray-100" required />
                         </div>
                         <div>
-                            <label htmlFor="description" className="block mb-2 text-sm">Description</label>
-                            <input type="text" name="description" id="description" placeholder="Enter Description" className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900 text-gray-100" required />
+                            <label htmlFor="description" className="block mb-2 text-md">Description</label>
+                            <input type="text" name="description" id="description" placeholder="Enter Description" className="w-full px-3 py-2 border rounded-md border-gray-700 text-gray-100" required />
                         </div>
                         <div>
-                            <label htmlFor="img" className="block mb-2 text-sm">ImageURL</label>
-                            <input type="text" name="img" id="img" placeholder="Enter Image URL" className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900 text-gray-100" required />
+                            <label htmlFor="img" className="block mb-2 text-md">ImageURL</label>
+                            <input type="text" name="img" id="img" placeholder="Enter Image URL" className="w-full px-3 py-2 border rounded-md border-gray-700 text-gray-100" required />
                         </div>
                         <div>
-                            <label htmlFor="price" className="block mb-2 text-sm">Price</label>
-                            <input type="number" name="price" id="price" placeholder="Enter Price" className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900 text-gray-100" required />
+                            <label htmlFor="price" className="block mb-2 text-md">Price</label>
+                            <input type="number" name="price" id="price" placeholder="Enter Price" className="w-full px-3 py-2 border rounded-md border-gray-700 text-gray-100" required />
                         </div>
 
                     </div>
                     <div className="space-y-2">
                         <div>
-                            <button type="submit" className="w-1/2 mx-auto block px-8 py-3 font-semibold rounded-md bg-violet-400 text-gray-900">Add Service</button>
+                            <button type="submit" className="w-1/3 mx-auto block px-5 py-1 font-semibold rounded-md btn-bg text-white text-lg">Add Service</button>
                         </div>
                     </div>
                 </form>

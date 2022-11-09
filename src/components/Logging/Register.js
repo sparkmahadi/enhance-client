@@ -36,7 +36,7 @@ const Register = () => {
             <Helmet>
                 <title>Register - Enhance</title>
             </Helmet>
-            <h2 className='bg-gray-600 p-2 text-white text-center text-2xl font-semibold uppercase'>Registration...</h2>
+            <h2 className='titles-bg p-2 text-white text-center text-2xl font-semibold uppercase'>Registration...</h2>
 
             <div className='min-h-screen'>
                 {
@@ -68,7 +68,7 @@ const Register = () => {
                             <p className='text-red-600 mb-2'>{error}</p>
                             <p className='pb-2'>Already have an account? Please <Link className='text-blue-700 font-semibold' to='/login'>Login</Link> Now!</p>
 
-                            <button type="submit" className="text-white bg-gray-500 hover:bg-blue-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5">Register</button>
+                            <button type="submit" className="text-white second-bg hover:bg-blue-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg w-full sm:w-auto px-5 py-2">Register</button>
                         </form>
                 }
             </div>

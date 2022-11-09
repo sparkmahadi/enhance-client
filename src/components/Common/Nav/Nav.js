@@ -33,7 +33,7 @@ const Nav = () => {
     }
 
     return (
-        <div className="bg-gray-800">
+        <div className="nav-bg">
 
             <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
                 <div className="relative flex items-center justify-between">
@@ -92,7 +92,7 @@ const Nav = () => {
                             user?.uid ?
                                 <li>
                                     <NavLink
-                                        to={`/MyReviews/${user?.email}`}
+                                        to={`/MyReviews?email=${user?.email}`}
                                         aria-label="MyReviews"
                                         title="MyReviews"
                                         className={`font-medium tracking-wide text-white hover:text-sky-300`}
@@ -113,29 +113,9 @@ const Nav = () => {
                                 Blog
                             </NavLink>
                         </li>
-                        <li onClick={toggleTheme}>
-                            <Link
-                                aria-label="Theme"
-                                title={theme}
-                                className="font-medium tracking-wide text-white hover:text-sky-300"
-                            >
-                                {
-                                    theme === "light-theme" ?
-                                        <div className="flex gap-2 items-center">
-                                            <p>Light | </p>
-                                            <BsFillSunFill className="w-6 h-6 sun-theme-bg" />
-                                        </div>
-                                        :
-                                        <div className="flex gap-2 items-center">
-                                            <p>Dark | </p>
-                                            <BsFillMoonStarsFill className="w-6 h-6 moon-theme-bg" />
-                                        </div>
-                                }
-                            </Link>
-                        </li>
                         <li>
                             <div to='/login'
-                                className="cursor-pointer bg-slate-500 flex items-center justify-center gap-2 py-1 px-2 text-white hover:bg-sky-700 duration-200 rounded shadow-md"
+                                className="cursor-pointer btn-bg flex items-center justify-center gap-2 py-1 px-2 text-white hover:bg-sky-700 duration-200 rounded shadow-md"
 
                             >
                                 {
@@ -285,26 +265,6 @@ const Nav = () => {
                                                     Blog
                                                 </NavLink>
                                             </li>
-                                            <li onClick={toggleTheme}>
-                                                <Link
-                                                    aria-label="Theme"
-                                                    title={theme}
-                                                    className="font-medium tracking-wide text-white hover:text-sky-300 transition-colors duration-200 hover:text-teal-accent-400"
-                                                >
-                                                    {
-                                                        theme === "light-theme" ?
-                                                            <div className="flex gap-2 items-center">
-                                                                <p className="text-gray-900">Light | </p>
-                                                                <BsFillSunFill className="w-6 h-6 sun-theme-bg text-orange-500" />
-                                                            </div>
-                                                            :
-                                                            <div className="flex gap-2 items-center">
-                                                                <p className="text-white">Dark | </p>
-                                                                <BsFillMoonStarsFill className="w-6 h-6 moon-theme-bg" />
-                                                            </div>
-                                                    }
-                                                </Link>
-                                            </li>
                                             <li>
                                                 <div to='/login'
                                                     className="cursor-pointer bg-slate-500 flex items-center justify-center gap-2 h-12 px-2 text-white hover:bg-sky-700 duration-200 rounded shadow-md"
@@ -317,7 +277,7 @@ const Nav = () => {
                                                             </div>
                                                             :
                                                             <>
-                                                                <Link to='/login'>Log In</Link>
+                                                                <Link to='/login' className="font-semibold text-lg">Log In</Link>
                                                             </>
                                                     }
                                                 </div>
