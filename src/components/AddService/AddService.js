@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from '../../contexts/UserContext';
+import { Helmet } from 'react-helmet-async';
 
 const AddService = () => {
     const {user} = useContext(AuthContext);
@@ -38,6 +39,9 @@ const AddService = () => {
 
     return (
         <div className='sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:p-24 lg:p-8 mx-auto'>
+            <Helmet>
+                <title>Add Service - Enhance</title>
+            </Helmet>
             <ToastContainer
                 position="top-center"
                 autoClose={2000}

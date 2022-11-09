@@ -2,11 +2,15 @@ import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import Banner from './HomeChilds/Banner';
 import Services from './HomeChilds/Services';
+import { Helmet } from 'react-helmet-async';
 
 const Home = () => {
     const services = useLoaderData();
     return (
         <div className='px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 my-5'>
+            <Helmet>
+                <title>Home - Enhance</title>
+            </Helmet>
             <img src="../../banner.png" className='w-full pb-10' alt="" />
             <div className='sm:p-12 bg-slate-500 text-gray-100 rounded-lg mb-10'>
                 <h2 className='bg-gray-800 text-white px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 text-2xl uppercase text-center rounded-lg'>My Services</h2>

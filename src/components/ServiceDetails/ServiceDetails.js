@@ -6,6 +6,7 @@ import { AuthContext } from '../../contexts/UserContext';
 import AddReview from './AddReview';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const ServiceDetails = () => {
     const [reviews, setReviews] = useState([]);
@@ -30,6 +31,9 @@ const ServiceDetails = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Service Details - Enhance</title>
+            </Helmet>
             {/* service details section */}
             <section>
 

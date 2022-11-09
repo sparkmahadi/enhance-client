@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from '../../contexts/UserContext';
+import { Helmet } from 'react-helmet-async';
 
 const Profile = () => {
     const [name, setName] = useState("");
@@ -57,6 +58,9 @@ const Profile = () => {
 
     return (
         <div className='min-h-custom'>
+            <Helmet>
+                <title>My Profile - Enhance</title>
+            </Helmet>
             <ToastContainer position='top-center' />
             <h2 className='bg-sky-600 p-2 text-white text-center text-2xl font-semibold'>Your Profile</h2>
             <form onSubmit={handleUpdateUserProfile} className='container mx-auto bg-white px-10 my-5 py-10 rounded-lg text-gray-900 md:w-2/3 lg:w-1/2'>

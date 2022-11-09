@@ -1,8 +1,12 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const Blog = () => {
     return (
         <div className='blog-div min-h-screen'>
+            <Helmet>
+                <title>Blog - Enhance</title>
+            </Helmet>
             <section>
                 <div className="container flex flex-col justify-center p-4 mx-auto md:p-8">
                     <h2 className="mb-12 text-4xl font-bold leading-none text-center">Blog : (Database, NodeJS and JWT)</h2>
