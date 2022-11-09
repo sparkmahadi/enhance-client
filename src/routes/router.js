@@ -7,6 +7,7 @@ import Login from "../components/Logging/Login";
 import Register from "../components/Logging/Register";
 import MyReviews from "../components/MyReviews/MyReviews";
 import UpdateReview from "../components/MyReviews/UpdateReview";
+import Profile from "../components/Profile/Profile";
 import Main from "../layout/Main";
 import ServiceDetails from './../components/ServiceDetails/ServiceDetails';
 import PrivateRoute from "./PrivateRoute";
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
             {
                 path: '/blog',
                 element: <Blog></Blog>
+            },
+            {
+                path: '/profile',
+                element: <Profile></Profile>
             }
         ]
     }
