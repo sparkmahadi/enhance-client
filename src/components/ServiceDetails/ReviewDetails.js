@@ -22,6 +22,7 @@ const ReviewDetails = ({ rvw }) => {
                 </div>
             </div>
             <div className="p-4 space-y-2 text-sm text-gray-400">
+                <h3 className='font-semibold text-lg'>{reviewTitle}</h3>
                 <p>{description}</p>
             </div>
         </div>
