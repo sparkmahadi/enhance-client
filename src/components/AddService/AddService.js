@@ -1,16 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { AuthContext } from '../../contexts/UserContext';
 
 const AddService = () => {
-    const handleSubmit = event => {
+    const {user} = useContext(AuthContext);
 
-        event.preventDefault();
+    const handleSubmit = event => {
+        const userEmail = user.email;
+
+        event.preventDefault(); 
         const form = event.target;
         const name = form.name.value;
         const description = form.description.value;
         const img = form.img.value;
         const price = form.price.value;
 
-        const service = { name, description, img, price };
+        const service = { name, description, img, price, userEmail};
         console.log(service);
 
         fetch('http://localhost:5000/services', {
@@ -22,15 +28,28 @@ const AddService = () => {
         })
             .then(res => res.json())
             .then(data => {
-                if(data.acknowledged){
-                    alert('Service is added')
+                if (data.acknowledged) {
+                    toast.success('Service is added successfully!')
                 }
             })
+
 
     }
 
     return (
         <div className='sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:p-24 lg:p-8 mx-auto'>
+            <ToastContainer
+                position="top-center"
+                autoClose={2000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            />
             <div className="flex flex-col p-6 rounded-md sm:p-10 bg-gray-900 text-gray-100">
                 <div className="mb-8 text-center">
                     <h1 className="my-3 text-4xl font-bold">Add A New Service</h1>

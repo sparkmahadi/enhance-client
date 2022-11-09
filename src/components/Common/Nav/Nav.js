@@ -98,16 +98,6 @@ const Nav = () => {
                         }
 
                         <li>
-                            <NavLink
-                                to='/faq'
-                                aria-label="FAQ"
-                                title="FAQ"
-                                className="font-medium tracking-wide text-white hover:text-sky-300"
-                            >
-                                FAQ
-                            </NavLink>
-                        </li>
-                        <li>
                             <NavLink to='/blog'
                                 aria-label="Blog"
                                 title="Blog"
@@ -275,15 +265,6 @@ const Nav = () => {
                                                     undefined
                                             }
 
-                                            <li>
-                                                <NavLink to='/faq'
-                                                    aria-label="FAQ"
-                                                    title="FAQ"
-                                                    className="font-medium tracking-wide"
-                                                >
-                                                    FAQ
-                                                </NavLink>
-                                            </li>
                                             <li>
                                                 <NavLink to='/blog'
                                                     aria-label="Blog"
