@@ -23,5 +23,6 @@
 - React Toastify
 - React Icons
 - React-Photo-View
+- React Helmet Async
 - AOS
 - Vercel

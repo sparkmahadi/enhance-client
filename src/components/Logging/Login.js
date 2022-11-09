@@ -3,10 +3,12 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { AuthContext } from '../../contexts/UserContext';
 import { Helmet } from 'react-helmet-async';
+import Spinner from '../Spinner/Spinner';
 
 const Login = () => {
+
     const [error, setError] = useState('');
-    const { logIn, logInWithGoogle } = useContext(AuthContext);
+    const { logIn, logInWithGoogle, loading, setLoading } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -50,9 +52,15 @@ const Login = () => {
             <Helmet>
                 <title>Login - Enhance</title>
             </Helmet>
-            <h2 data-aos="fade-right" data-aos-duration="1000" className='bg-gray-600 p-2 text-white text-center text-2xl font-semibold'>Log in...</h2>
+            <h2 className='bg-gray-600 p-2 text-white text-center text-2xl font-semibold'>Log in...</h2>
 
-            <form onSubmit={handleSubmit} data-aos="fade-left" data-aos-duration="1000" className='container mx-auto bg-white px-5 px-10 py-10 rounded-lg text-gray-900 md:w-2/3 lg:w-1/2'>
+            <div className='min-h-screen'>
+            {
+                loading ? 
+                <div className='custom-align'><Spinner></Spinner></div> 
+                : 
+
+                <form onSubmit={handleSubmit} data-aos="fade-left" data-aos-duration="1000" className='container mx-auto bg-white px-5 px-10 py-10 rounded-lg text-gray-900 md:w-2/3 lg:w-1/2'>
                 <div className="mb-6">
                     <label htmlFor="email" className="block mb-2 text-lg font-medium">Your email</label>
                     <input type="email" name='email' id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" placeholder="Enter Your Email" required />
@@ -63,6 +71,9 @@ const Login = () => {
                 </div>
 
                 <p className='text-red-600 mb-2'>{error}</p>
+                {
+                    error ? setLoading(false) : undefined
+                }
                 <p className='pb-2'>New to the site? Please <Link className='text-blue-700 font-semibold' to='/register'>Register</Link> Now!</p>
 
                 <button type="submit" className="text-white bg-gray-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5">Login</button>
@@ -74,6 +85,9 @@ const Login = () => {
                     </div>
                 </div>
             </form>
+            }
+            </div>
+            
         </div>
     );
 };

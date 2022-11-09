@@ -4,11 +4,12 @@ import './Nav.css'
 import { BiUserCircle } from 'react-icons/bi';
 import { BsFillMoonStarsFill, BsFillSunFill } from 'react-icons/bs'
 import { AuthContext } from "../../../contexts/UserContext";
+import Spinner from "../../Spinner/Spinner";
 
 const Nav = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [theme, setTheme] = useState("light-theme");
-    const { user, logOut } = useContext(AuthContext);
+    const { user, logOut, loading } = useContext(AuthContext);
 
 
 
@@ -33,6 +34,7 @@ const Nav = () => {
 
     return (
         <div className="bg-gray-800">
+
             <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
                 <div className="relative flex items-center justify-between">
                     <Link to='/'
@@ -45,7 +47,12 @@ const Nav = () => {
                             Enhance
                         </span>
                     </Link>
-                    <ul className="flex items-center hidden space-x-8 lg:flex">
+
+                    <div className="hidden lg:block">
+                    {
+                        loading ? <Spinner></Spinner>
+                        : 
+                        <ul className="items-center hidden space-x-8 lg:flex">
                         <li>
                             <NavLink
                                 to="/home"
@@ -156,6 +163,10 @@ const Nav = () => {
                             </div>
                         </li>
                     </ul>
+                    }
+                    </div>
+                    
+
                     <div className="lg:hidden flex items-center">
                         <button
                             aria-label="Open Menu"

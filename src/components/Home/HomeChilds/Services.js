@@ -3,11 +3,17 @@ import { Link } from 'react-router-dom';
 import './Services.css'
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
+import { useEffect } from 'react';
 
-const Services = ({ service }) => {
+const Services = ({ service, setLoading }) => {
     const { _id, name, description, img, price } = service;
+
+    useEffect(()=>{
+        setLoading(false);
+    },[])
     return (
         <div className='mx-auto drop-shadow-xl'>
+            
             <div className="max-w-sm min-h-full p-6 rounded-md shadow-md bg-card">
                 <PhotoProvider>
                     <PhotoView src={img}>
