@@ -38,7 +38,7 @@ const AddService = () => {
     }
 
     return (
-        <div className='sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:p-24 lg:p-8 mx-auto'>
+        <div className='sm:max-w-xl md:max-w-full lg:max-w-screen-xl p-5 md:p-10 lg:p-8 mx-auto'>
             <Helmet>
                 <title>Add Service - Enhance</title>
             </Helmet>
@@ -56,7 +56,7 @@ const AddService = () => {
             />
             <div className="flex flex-col p-6 rounded-md sm:p-10 second-bg text-gray-100">
                 <div className="mb-8 text-center">
-                    <h1 className="my-3 text-4xl font-bold">Add A New Service</h1>
+                    <h1 className="my-3 text-2xl lg:text-4xl font-bold">Add A New Service</h1>
                 </div>
                 <form onSubmit={handleSubmit} className="space-y-12 ng-untouched ng-pristine ng-valid lg:px-36">
                     <div className="space-y-4">
@@ -80,7 +80,7 @@ const AddService = () => {
                     </div>
                     <div className="space-y-2">
                         <div>
-                            <button type="submit" className="w-1/3 mx-auto block px-5 py-1 font-semibold rounded-md btn-bg text-white text-lg">Add Service</button>
+                            <button type="submit" className="md:w-1/3 mx-auto block px-5 py-1 font-semibold rounded-md btn-bg text-white text-lg">Add Service</button>
                         </div>
                     </div>
                 </form>

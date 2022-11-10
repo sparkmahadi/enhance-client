@@ -35,7 +35,7 @@ const Nav = () => {
     return (
         <div className="nav-bg">
 
-            <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+            <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-10 lg:px-8">
                 <div className="relative flex items-center justify-between">
                     <Link to='/'
                         aria-label="Enhance"
@@ -49,103 +49,103 @@ const Nav = () => {
                     </Link>
 
                     <div className="hidden lg:block">
-                    {
-                        loading ? <Spinner></Spinner>
-                        : 
-                        <ul className="items-center hidden space-x-8 lg:flex">
-                        <li>
-                            <NavLink
-                                to="/home"
-                                aria-label="Home"
-                                title="Home"
-                                className={`font-medium tracking-wide text-white hover:text-sky-300`}
-                            >
-                                Home
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink
-                                to="/Services"
-                                aria-label="Services"
-                                title="Services"
-                                className={`font-medium tracking-wide text-white hover:text-sky-300`}
-                            >
-                                Services
-                            </NavLink>
-                        </li>
                         {
-                            user?.uid ?
-                                <li>
-                                    <NavLink
-                                        to="/AddService"
-                                        aria-label="AddService"
-                                        title="AddService"
-                                        className={`font-medium tracking-wide text-white hover:text-sky-300`}
-                                    >
-                                        Add Service
-                                    </NavLink>
-                                </li>
+                            loading ? <Spinner></Spinner>
                                 :
-                                undefined
-                        }
-                        {
-                            user?.uid ?
-                                <li>
-                                    <NavLink
-                                        to={`/MyReviews?email=${user?.email}`}
-                                        aria-label="MyReviews"
-                                        title="MyReviews"
-                                        className={`font-medium tracking-wide text-white hover:text-sky-300`}
-                                    >
-                                        My Reviews
-                                    </NavLink>
-                                </li>
-                                :
-                                undefined
-                        }
+                                <ul className="items-center hidden space-x-8 lg:flex">
+                                    <li>
+                                        <NavLink
+                                            to="/home"
+                                            aria-label="Home"
+                                            title="Home"
+                                            className={`font-medium tracking-wide text-white hover:text-sky-300`}
+                                        >
+                                            Home
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink
+                                            to="/Services"
+                                            aria-label="Services"
+                                            title="Services"
+                                            className={`font-medium tracking-wide text-white hover:text-sky-300`}
+                                        >
+                                            Services
+                                        </NavLink>
+                                    </li>
+                                    {
+                                        user?.uid ?
+                                            <li>
+                                                <NavLink
+                                                    to="/AddService"
+                                                    aria-label="AddService"
+                                                    title="AddService"
+                                                    className={`font-medium tracking-wide text-white hover:text-sky-300`}
+                                                >
+                                                    Add Service
+                                                </NavLink>
+                                            </li>
+                                            :
+                                            undefined
+                                    }
+                                    {
+                                        user?.uid ?
+                                            <li>
+                                                <NavLink
+                                                    to={`/MyReviews?email=${user?.email}`}
+                                                    aria-label="MyReviews"
+                                                    title="MyReviews"
+                                                    className={`font-medium tracking-wide text-white hover:text-sky-300`}
+                                                >
+                                                    My Reviews
+                                                </NavLink>
+                                            </li>
+                                            :
+                                            undefined
+                                    }
 
-                        <li>
-                            <NavLink to='/blog'
-                                aria-label="Blog"
-                                title="Blog"
-                                className="font-medium tracking-wide text-white hover:text-sky-300"
-                            >
-                                Blog
-                            </NavLink>
-                        </li>
-                        <li>
-                            <div to='/login'
-                                className="cursor-pointer btn-bg flex items-center justify-center gap-2 py-1 px-2 text-white hover:bg-sky-700 duration-200 rounded shadow-md"
+                                    <li>
+                                        <NavLink to='/blog'
+                                            aria-label="Blog"
+                                            title="Blog"
+                                            className="font-medium tracking-wide text-white hover:text-sky-300"
+                                        >
+                                            Blog
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <div to='/login'
+                                            className="cursor-pointer btn-bg flex items-center justify-center gap-2 py-1 px-2 text-white hover:bg-sky-700 duration-200 rounded shadow-md"
 
-                            >
-                                {
-                                    user?.uid ?
-                                        <div className="flex items-center">
-                                            <Link to='/profile'>
-                                                {
-                                                    user?.photoURL ?
-                                                        <div className="flex items-center" title={user?.displayName ? user.displayName : 'No Name'}>
-                                                            <img className="max-w-8 max-h-8 mr-2 border border-sky-300" src={user?.photoURL} alt="" />
-                                                        </div>
-                                                        :
-                                                        <div className="flex items-center" title={user?.displayName ? user.displayName : 'No Name'}>
-                                                            <BiUserCircle className="w-7 h-7 border border-sky-300 mr-2 rounded-md" />
-                                                        </div>
-                                                }
-                                            </Link>
-                                            <button onClick={handleLogOut}>Log Out</button>
+                                        >
+                                            {
+                                                user?.uid ?
+                                                    <div className="flex items-center">
+                                                        <Link to='/profile'>
+                                                            {
+                                                                user?.photoURL ?
+                                                                    <div className="flex items-center" title={user?.displayName ? user.displayName : 'No Name'}>
+                                                                        <img className="max-w-8 max-h-8 mr-2 border border-sky-300" src={user?.photoURL} alt="" />
+                                                                    </div>
+                                                                    :
+                                                                    <div className="flex items-center" title={user?.displayName ? user.displayName : 'No Name'}>
+                                                                        <BiUserCircle className="w-7 h-7 border border-sky-300 mr-2 rounded-md" />
+                                                                    </div>
+                                                            }
+                                                        </Link>
+                                                        <button onClick={handleLogOut}>Log Out</button>
+                                                    </div>
+                                                    :
+                                                    <>
+                                                        <Link to='/login'>Log In</Link>
+                                                    </>
+                                            }
                                         </div>
-                                        :
-                                        <>
-                                            <Link to='/login'>Log In</Link>
-                                        </>
-                                }
-                            </div>
-                        </li>
-                    </ul>
-                    }
+                                    </li>
+                                </ul>
+                        }
                     </div>
-                    
+
 
                     <div className="lg:hidden flex items-center">
                         <button

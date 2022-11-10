@@ -3,20 +3,20 @@ import { Helmet } from 'react-helmet-async';
 
 const Blog = () => {
     return (
-        <div className='blog-div min-h-screen second-bg'>
+        <div className='blog-div min-h-screen second-bg m-5 rounded-lg md:m-10 lg:m-0 lg:rounded-none'>
             <Helmet>
                 <title>Blog - Enhance</title>
             </Helmet>
             <section>
                 <div className="container flex flex-col justify-center p-4 mx-auto md:p-8">
-                    <h2 className="mb-12 text-3xl font-bold text-center titles-bg p-2 rounded-lg text-white lg:mx-32">Blog : (Database, NodeJS and JWT)</h2>
+                    <h2 className="mb-12 text-xl lg:text-3xl font-bold text-center titles-bg p-2 rounded-lg text-white lg:mx-32">Blog : (Database, NodeJS and JWT)</h2>
                     <div className="flex flex-col divide-y sm:px-8 lg:px-12 xl:px-32 divide-gray-300 text-white">
 
 
                         <details>
-                            <summary className="py-2 outline-none cursor-pointer focus:underline font-semibold text-lg">What are the difference between SQL and NoSQL?
+                            <summary className="py-2 outline-none cursor-pointer focus:underline font-semibold lg:text-lg">What are the difference between SQL and NoSQL?
                             </summary>
-                            <div className="px-4 pb-4 text-md">
+                            <div className="px-4 pb-4 text-sm lg:text-md">
                                 <ul className='list-disc list-inside'>
                                     <li>SQL databases are relational, NoSQL databases are non-relational.</li>
                                     <li>SQL databases use structured query language and have a predefined schema. NoSQL databases have dynamic schemas for unstructured data.</li>
@@ -28,8 +28,8 @@ const Blog = () => {
                         </details >
 
                         <details>
-                            <summary className="py-2 outline-none cursor-pointer focus:underline font-semibold text-lg">What is JWT, and how does it work?</summary>
-                            <div className="px-4 pb-4 text-md">
+                            <summary className="py-2 outline-none cursor-pointer focus:underline font-semibold lg:text-lg">What is JWT, and how does it work?</summary>
+                            <div className="px-4 pb-4 text-sm lg:text-md">
                                 <p>JWT: JSON Web Token (JWT) is an open standard (RFC 7519) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. This information can be verified and trusted because it is digitally signed. JWTs can be signed using a secret (with the HMAC algorithm) or a public/private key pair using RSA or ECDSA.</p>
                                 <p className='pb-5'>Basically the identity provider(IdP) generates a JWT certifying user identity and Resource server decodes and verifies the authenticity of the token using secret salt / public key.</p>
                                 <img className='mx-auto rounded-lg pb-5' src="https://i.ibb.co/SX3yjXT/jwt.png" alt="" />
@@ -45,10 +45,10 @@ const Blog = () => {
 
 
                         <details>
-                            <summary className="py-2 outline-none cursor-pointer focus:underline font-semibold text-lg">What is the difference between javascript and NodeJS?</summary>
-                            <div className="px-4 pb-4 text-md">
-                                <div className="overflow-x-auto relative rounded-lg">
-                                    <table className="w-full text-md text-left text-white">
+                            <summary className="py-2 outline-none cursor-pointer focus:underline font-semibold lg:text-lg">What is the difference between javascript and NodeJS?</summary>
+                            <div className="px-4 pb-4 text-sm lg:text-md">
+                                <div className="overflow-x-auto relative rounded-lg border border-sky-200">
+                                    <table className="w-full text-sm lg:text-md text-left text-white ">
                                         <thead className="text-xs uppercase bg-gray-700 text-white">
                                             <tr>
                                                 <th scope="col" className="py-3 px-6 text-center border border-sky-200">
@@ -103,8 +103,8 @@ const Blog = () => {
                         </details >
 
                         <details>
-                            <summary className="py-2 outline-none cursor-pointer focus:underline font-semibold text-lg">How does NodeJS handle multiple requests at the same time?</summary>
-                            <div className="px-4 pb-4 text-md">
+                            <summary className="py-2 outline-none cursor-pointer focus:underline font-semibold lg:text-lg">How does NodeJS handle multiple requests at the same time?</summary>
+                            <div className="px-4 pb-4 text-sm lg:text-md">
                                 <p>NodeJS Web Server maintains a limited Thread Pool to provide services to client requests. Multiple clients make multiple requests to the NodeJS server. NodeJS receives these requests and places them into the EventQueue .
                                     NodeJS server has an internal component referred to as the EventLoop which is an infinite loop that receives requests and processes them. This EventLoop is single threaded. In other words, EventLoop is the listener for the EventQueue.
                                     So, we have an event queue where the requests are being placed and we have an event loop listening to these requests in the event queue. What happens next?

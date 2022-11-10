@@ -5,7 +5,7 @@ import './Footer.css'
 const Footer = () => {
     return (
         <div className='nav-bg text-white'>
-            <div className="px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+            <div className="px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-10 lg:px-8">
         <div className="grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
           <div className="sm:col-span-2">
             <a
@@ -106,14 +106,6 @@ const Footer = () => {
             © Copyright 2020 Lorem Inc. All rights reserved.
           </p>
           <ul className="flex flex-col mb-3 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row">
-            <li>
-              <a
-                href="/"
-                className="text-sm  transition-colors duration-300 hover:text-deep-purple-accent-400"
-              >
-                F.A.Q
-              </a>
-            </li>
             <li>
               <a
                 href="/"

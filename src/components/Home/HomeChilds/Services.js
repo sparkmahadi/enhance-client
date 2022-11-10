@@ -14,7 +14,7 @@ const Services = ({ service, setLoading }) => {
     return (
         <div className='mx-auto drop-shadow-xl'>
             
-            <div className="max-w-sm min-h-full p-6 rounded-md shadow-md bg-card">
+            <div className="lg:max-w-sm min-h-full p-6 rounded-md shadow-md bg-card">
                 <PhotoProvider>
                     <PhotoView src={img}>
                         <img src={img} alt="" className="object-cover object-center w-full rounded-md h-72 bg-gray-500" />

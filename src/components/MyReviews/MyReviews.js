@@ -51,7 +51,7 @@ const MyReviews = () => {
 
     }
     return (
-        <div className='sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 mx-auto my-5 min-h-screen'>
+        <div className='sm:max-w-xl md:max-w-full lg:max-w-screen-xl px-5 md:px-10 lg:px-8 mx-auto my-5 min-h-screen'>
             <Helmet>
                 <title>My Reviews - Enhance</title>
             </Helmet>
@@ -74,16 +74,16 @@ const MyReviews = () => {
                         <table className="w-full text-sm text-left text-gray-400">
                             <thead className="text-xs uppercase second-bg text-white">
                                 <tr>
-                                    <th scope="col" className="py-3 px-6 text-center border border-sky-200">
+                                    <th scope="col" className="py-3 lg:px-6 text-center border border-sky-200">
                                         Service
                                     </th>
-                                    <th scope="col" className="py-3 px-6 text-center border border-sky-200">
+                                    <th scope="col" className="py-3 lg:px-6 text-center border border-sky-200">
                                         My Feedback
                                     </th>
-                                    <th scope="col" className="py-3 px-6 text-center border border-sky-200">
+                                    <th scope="col" className="py-3 lg:px-6 text-center border border-sky-200">
                                         My Comments
                                     </th>
-                                    <th scope="col" className="py-3 px-6 text-center border border-sky-200">
+                                    <th scope="col" className="py-3 lg:px-6 text-center border border-sky-200">
                                         Actions
                                     </th>
                                 </tr>
