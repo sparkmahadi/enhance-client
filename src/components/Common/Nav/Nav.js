@@ -43,7 +43,7 @@ const Nav = () => {
                         className="inline-flex items-center"
                     >
                         <img className="h-8 w-8 text-white" src="https://i.ibb.co/ynnXHCP/logo.png" alt="" />
-                        <span className="ml-2 text-xl font-bold tracking-wide text-white hover:text-sky-300">
+                        <span className="ml-2 text-xl font-bold tracking-wide text-white hover:text-sky-300 uppercase">
                             Enhance
                         </span>
                     </Link>

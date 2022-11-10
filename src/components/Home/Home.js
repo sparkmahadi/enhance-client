@@ -4,6 +4,7 @@ import Banner from './HomeChilds/Banner';
 import Services from './HomeChilds/Services';
 import { Helmet } from 'react-helmet-async';
 import { useState } from 'react';
+import './Home.css'
 
 const Home = () => {
     const [loading, setLoading] = useState(true);
@@ -13,7 +14,28 @@ const Home = () => {
             <Helmet>
                 <title>Home - Enhance</title>
             </Helmet>
-            <img src="../../banner.png" className='w-full pb-10' alt="" />
+
+            <div className='my-10'>
+                <div className="relative w-full">
+                    <div className='banner-img'>
+                        <img src='../../banner.jpg' alt="" className="w-full rounded-xl" />
+                    </div>
+                    <div className="absolute flex justify-end transform -translate-y-1/2 right-40 top-1/4">
+                        <h1 className='text-5xl font-bold text-white'>
+                            Home <br />
+                            Interior Designing
+                        </h1>
+                    </div>
+                    <div className="absolute flex justify-end transform -translate-y-1/2 w-2/5 right-20 top-1/2">
+                        <p className='text-xl text-white'>I take pride in my clients.
+                            I know that my success depends on their
+                            satisfaction and I work hard to make sure
+                            each and every one of my clients is happy
+                            with the service they receive.</p>
+                    </div>
+                </div>
+            </div>
+
             <div className='sm:p-12 second-bg text-gray-100 rounded-lg mb-10'>
                 <h2 className='titles-bg text-white px-4 py-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 text-2xl uppercase text-center rounded-lg'>Services</h2>
                 <div className='grid lg:grid-cols-3 gap-10 py-10'>
