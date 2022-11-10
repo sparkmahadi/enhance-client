@@ -33,7 +33,7 @@ const Login = () => {
                 }
 
                 // jwt token
-                fetch('http://localhost:5000/jwt', {
+                fetch('https://enhance-server.vercel.app/jwt', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -60,12 +60,31 @@ const Login = () => {
                 const user = r.user;
                 console.log(user);
                 setError('');
-                navigate(from, { replace: true });
+                const currentUser = {
+                    email: user.email
+                }
+
+                // jwt token
+                fetch('https://enhance-server.vercel.app/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        localStorage.setItem('enhance-token', data.token);
+                        navigate(from, { replace: true });
+                    })
             })
             .catch(e => {
                 console.log(e);
                 setError(e.message);
+                setLoading(false);
             })
+            
     }
     return (
         <div>
@@ -80,7 +99,8 @@ const Login = () => {
                         <div className='custom-align'><Spinner></Spinner></div>
                         :
 
-                        <form onSubmit={handleSubmit} data-aos="fade-left" data-aos-duration="1000" className='container mx-auto bg-white px-5 px-10 py-10 rounded-lg text-gray-900 md:w-2/3 lg:w-1/2'>
+                        <div className='mx-5'>
+                            <form onSubmit={handleSubmit} className='container mx-auto my-5 second-bg px-5 lg:px-10 py-10 rounded-lg text-white md:w-2/3 lg:w-1/2'>
                             <div className="mb-6">
                                 <label htmlFor="email" className="block mb-2 text-lg font-medium">Your email</label>
                                 <input type="email" name='email' id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" placeholder="Enter Your Email" required />
@@ -92,17 +112,17 @@ const Login = () => {
 
                             <p className='text-red-600 mb-2'>{error}</p>
                            
-                            <p className='pb-2'>New to the site? Please <Link className='text-blue-700 font-semibold' to='/register'>Register</Link> Now!</p>
+                            <p className='pb-2'>New to the site? Please <Link className='text-sky-500 font-semibold' to='/register'>Register</Link> Now!</p>
 
-                            <button type="submit" className="text-white second-bg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg w-full sm:w-auto px-5 py-2">Login</button>
-                            <p className='py-2 text-center'>Forgot Password? <Link to='/reset-password' className='text-blue-700 font-semibold'>Reset</Link> Your Password.</p>
+                            <button type="submit" className="text-white btn-bg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg w-full sm:w-auto px-5 py-1">Login</button>
                             <div>
-                                <div onClick={handleGoogleLogin} className='cursor-pointer flex bg-gray-200 justify-center p-2 rounded-md mt-2 lg:w-1/2 mx-auto'>
+                                <div onClick={handleGoogleLogin} className='cursor-pointer flex btn-bg justify-center p-2 rounded-md mt-2 lg:w-1/2 mx-auto'>
                                     <FcGoogle className='w-6 h-6' />
                                     <h2 className='ml-2'>Continue with Google</h2>
                                 </div>
                             </div>
                         </form>
+                        </div>
                 }
             </div>
 

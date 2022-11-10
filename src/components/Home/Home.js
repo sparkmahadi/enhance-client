@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
-import Banner from './HomeChilds/Banner';
 import Services from './HomeChilds/Services';
 import { Helmet } from 'react-helmet-async';
 import { useState } from 'react';
@@ -22,7 +21,7 @@ const Home = () => {
             <div className='my-10'>
                 <div className="relative w-full">
                     <div className='banner-img'>
-                        <img src='../../banner.jpg' alt="" className="w-full rounded-xl" />
+                        <img src='https://i.ibb.co/KyshYZ4/banner.jpg' alt="" className="w-full rounded-xl" />
                     </div>
                     <div className="absolute text-center w-1/2 -translate-y-1/2 right-2 md:right-5 xl:right-26 top-1/2">
                         <h1 className='lg:text-6xl md:text-xl text-sm font-bold text-white mb-1 md:mb-5'>

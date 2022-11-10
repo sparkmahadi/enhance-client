@@ -1,6 +1,6 @@
 # TechSync+ | React App
 
-- Live site: 
+- Live site: https://enhance-d302c.web.app/
 
 ### Core Features:
 - The project is about an home interior designer's service details.
@@ -24,5 +24,8 @@
 - React Icons
 - React-Photo-View
 - React Helmet Async
-- AOS
 - Vercel
+- MongoDB
+- JSON Web Token
+- Node JS
+- Express JS

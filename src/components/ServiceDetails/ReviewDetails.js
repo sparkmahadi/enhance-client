@@ -1,11 +1,10 @@
 import React from 'react';
 
-const ReviewDetails = ({ rvw, setRefetch }) => {
+const ReviewDetails = ({ rvw, setRefetch}) => {
     const { reviewerName, reviewTitle, description, reviewerImg, createdAt } = rvw;
     const convertedDate = new Date(createdAt);
-    console.log(convertedDate);
     return (
-        <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 bg-gray-900 text-gray-100">
+        <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 bg-slate-700 text-gray-100">
             <div className="flex justify-between p-4">
                 <div className="flex space-x-4">
                     <div>
@@ -18,7 +17,7 @@ const ReviewDetails = ({ rvw, setRefetch }) => {
                     </div>
                     <div>
                         <h4 className="font-bold">{reviewerName}</h4>
-                        <span className="text-xs text-gray-400">{convertedDate.toUTCString()}</span>
+                        <span className="text-xs text-white">{convertedDate.toUTCString()==='Invalid Date' ? 'created now' : convertedDate.toUTCString()}</span>
                     </div>
                 </div>
                 <div className="flex items-center space-x-2 text-yellow-500">
@@ -28,7 +27,7 @@ const ReviewDetails = ({ rvw, setRefetch }) => {
                     <span className="text-xl font-bold">4.5</span>
                 </div>
             </div>
-            <div className="p-4 space-y-2 text-sm text-gray-400">
+            <div className="p-4 space-y-2 text-sm text-white">
                 <h3 className='font-semibold text-lg'>{reviewTitle}</h3>
                 <p>{description}</p>
             </div>

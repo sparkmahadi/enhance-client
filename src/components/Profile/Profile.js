@@ -42,8 +42,6 @@ const Profile = () => {
         const email = form.email.value;
         const photoURL = form.photoURL.value;
 
-        // console.log(name, email, photoURL);
-
         const profile = {
             displayName: name,
             photoURL: photoURL,
@@ -62,8 +60,8 @@ const Profile = () => {
                 <title>My Profile - Enhance</title>
             </Helmet>
             <ToastContainer position='top-center' />
-            <h2 className='bg-sky-600 p-2 text-white text-center text-2xl font-semibold'>Your Profile</h2>
-            <form onSubmit={handleUpdateUserProfile} className='container mx-auto bg-white px-10 my-5 py-10 rounded-lg text-gray-900 md:w-2/3 lg:w-1/2'>
+            <h2 className='titles-bg p-2 text-white text-center text-2xl font-semibold'>Your Profile</h2>
+            <form onSubmit={handleUpdateUserProfile} className='container mx-auto second-bg px-10 my-5 py-10 rounded-lg text-white md:w-2/3 lg:w-1/2'>
 
                 <div className="mb-6">
                     <label htmlFor="name" className="block mb-2 text-lg font-medium">Your Full Name:</label>

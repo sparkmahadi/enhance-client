@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData, useLocation } from 'react-router-dom';
 import ReviewDetails from './ReviewDetails';
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/UserContext';
@@ -10,23 +10,24 @@ import { Helmet } from 'react-helmet-async';
 
 const ServiceDetails = () => {
     const [reviews, setReviews] = useState([]);
-    const [refetch, setRefetch] = useState(false);
+    const [loadedReviews, setLoadedReviews] = useState([]);
     const { user } = useContext(AuthContext);
+    const location = useLocation();
     const service = useLoaderData();
     const { _id, name, description, img, price } = service;
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews/${_id}`)
+        fetch(`https://enhance-server.vercel.app/reviews/${_id}`)
             .then(res => res.json())
             .then(data => {
                 setReviews(data);
+                setLoadedReviews(data);
             })
-    }, [_id, refetch])
+    }, [_id])
 
     const reviewAddingHandler = (userReview) => {
-        // const newReviews = [...reviews, userReview];
-        // setReviews(newReviews);
-        setRefetch(true);
+        const newReviews = [userReview, ...loadedReviews];
+        setLoadedReviews(newReviews);
     }
 
     return (
@@ -55,23 +56,23 @@ const ServiceDetails = () => {
 
             {/* review section */}
 
-            <section className='second-bg sm:max-w-xl md:max-w-full lg:max-w-screen-xl m-5 p-5 md:mx-10 md:px-10 lg:px-8 rounded-lg'>
+            <section className='max-w-7xl mx-auto min-h-full p-6 rounded-md second-bg text-white'>
                 <h2 className='titles-bg text-white px-4 py-1 lg:py-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 text-xl lg:text-2xl uppercase text-center rounded-lg'>Reviews</h2>
 
                 <div className='text-white'>
                     {
-                        reviews.length > 0 ?
+                        loadedReviews.length > 0 ?
                             <div className='grid lg:grid-cols-2 my-10 gap-10'>
-                                {reviews.map((rvw, idx) => <ReviewDetails key={idx} rvw={rvw} ></ReviewDetails>)}
+                                {loadedReviews.map((rvw, idx) => <ReviewDetails key={idx} rvw={rvw} ></ReviewDetails>)}
                             </div>
                             :
                             <p className='text-center text-xl lg:text-2xl my-20 font-semibold'>No Reviews Yet...</p>
                     }
 
                     {
-                        user?.uid ? <AddReview id={_id} name={name} reviewAddingHandler={reviewAddingHandler} setRefetch={setRefetch}></AddReview>
+                        user?.uid ? <AddReview id={_id} name={name} reviewAddingHandler={reviewAddingHandler} ></AddReview>
                             :
-                            <Link to={'/login'}><p className='text-center text-lg lg:text-xl font-semibold bg-slate-700 text-white p-2 md:w-1/2 lg:w-1/3 mx-auto rounded-lg'>Please Login to add a review!!!</p></Link>
+                            <Link to={'/login'} state={{ from: location }} replace><p className='text-center text-lg lg:text-xl font-semibold bg-slate-700 text-white p-2 md:w-1/2 lg:w-1/3 mx-auto rounded-lg'>Please Login to add a review!!!</p></Link>
                     }
                 </div>
 

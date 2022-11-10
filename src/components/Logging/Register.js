@@ -11,12 +11,8 @@ const Register = () => {
     const handleSubmit = event => {
         event.preventDefault();
         const form = event.target;
-        const name = form.name.value;
-        const photoURL = form.photoURL.value;
         const email = form.email.value;
         const password = form.password.value;
-
-        // console.log(name, photoURL, email, password)
 
         createNewUser(email, password)
             .then(r => {
@@ -44,32 +40,29 @@ const Register = () => {
                         <div className='custom-align'><Spinner></Spinner></div>
                         :
 
-                        <form onSubmit={handleSubmit} className='container mx-auto bg-white px-10 py-10 rounded-lg text-gray-900 md:w-2/3 lg:w-1/2'>
+                        <div className='mx-5'>
+                            <form onSubmit={handleSubmit} className='container mx-auto second-bg px-5 md:px-10 py-10 my-5 rounded-lg text-white w-full md:w-2/3 lg:w-1/2'>
 
-                            <div className="mb-6">
-                                <label htmlFor="name" className="block mb-2 text-lg font-medium">Your Full Name:</label>
-                                <input type="text" name='name' id="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" placeholder="Enter Your Full Name" required />
-                            </div>
+                                <div className="mb-6">
+                                    <label htmlFor="name" className="block mb-2 text-lg font-medium">Your Full Name:</label>
+                                    <input type="text" name='name' id="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" placeholder="Enter Your Full Name" required />
+                                </div>
 
-                            <div className="mb-6">
-                                <label htmlFor="photoURL" className="block mb-2 text-lg font-medium">Your Photo URL</label>
-                                <input type="text" name='photoURL' id="photoURL" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" placeholder="Enter Your Full Name" />
-                            </div>
+                                <div className="mb-6">
+                                    <label htmlFor="email" className="block mb-2 text-lg font-medium">Your email</label>
+                                    <input type="email" name='email' id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" placeholder="Enter Your Email" required />
+                                </div>
 
-                            <div className="mb-6">
-                                <label htmlFor="email" className="block mb-2 text-lg font-medium">Your email</label>
-                                <input type="email" name='email' id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" placeholder="Enter Your Email" required />
-                            </div>
+                                <div className="mb-6">
+                                    <label htmlFor="password" className="block mb-2 text-lg font-medium">Your password</label>
+                                    <input type="password" name='password' id="password" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-l block w-full p-2.5" placeholder='Enter Your Password' required />
+                                </div>
+                                <p className='text-red-600 mb-2'>{error}</p>
+                                <p className='pb-2'>Already have an account? Please <Link className='text-sky-300 font-semibold' to='/login'>Login</Link> Now!</p>
 
-                            <div className="mb-6">
-                                <label htmlFor="password" className="block mb-2 text-lg font-medium">Your password</label>
-                                <input type="password" name='password' id="password" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-l block w-full p-2.5" placeholder='Enter Your Password' required />
-                            </div>
-                            <p className='text-red-600 mb-2'>{error}</p>
-                            <p className='pb-2'>Already have an account? Please <Link className='text-blue-700 font-semibold' to='/login'>Login</Link> Now!</p>
-
-                            <button type="submit" className="text-white second-bg hover:bg-blue-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg w-full sm:w-auto px-5 py-2">Register</button>
-                        </form>
+                                <button type="submit" className="text-white btn-bg hover:bg-blue-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg w-full sm:w-auto px-5 py-2">Register</button>
+                            </form>
+                        </div>
                 }
             </div>
         </div >

@@ -2,7 +2,6 @@ import { useEffect, useState, useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import './Nav.css'
 import { BiUserCircle } from 'react-icons/bi';
-import { BsFillMoonStarsFill, BsFillSunFill } from 'react-icons/bs'
 import { AuthContext } from "../../../contexts/UserContext";
 import Spinner from "../../Spinner/Spinner";
 
@@ -114,7 +113,7 @@ const Nav = () => {
                                         </NavLink>
                                     </li>
                                     <li>
-                                        <div to='/login'
+                                        <div    
                                             className="cursor-pointer btn-bg flex items-center justify-center gap-2 py-1 px-2 text-white hover:bg-sky-700 duration-200 rounded shadow-md"
 
                                         >
@@ -136,9 +135,7 @@ const Nav = () => {
                                                         <button onClick={handleLogOut}>Log Out</button>
                                                     </div>
                                                     :
-                                                    <>
                                                         <Link to='/login'>Log In</Link>
-                                                    </>
                                             }
                                         </div>
                                     </li>

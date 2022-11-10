@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
+import Spinner from '../components/Spinner/Spinner';
 import { AuthContext } from '../contexts/UserContext';
 
 const PrivateRoute = ({ children }) => {
@@ -7,7 +8,7 @@ const PrivateRoute = ({ children }) => {
     const location = useLocation();
 
     if (loading) {
-        return <p>Loading...</p>
+        return <div className='custom-align'><Spinner></Spinner></div>
     }
     if (!user) {
         return <Navigate to='/login' state={{ from: location }} replace></Navigate>
