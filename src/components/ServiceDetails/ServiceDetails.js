@@ -9,7 +9,6 @@ import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 
 const ServiceDetails = () => {
-    const [reviews, setReviews] = useState([]);
     const [loadedReviews, setLoadedReviews] = useState([]);
     const { user } = useContext(AuthContext);
     const location = useLocation();
@@ -17,10 +16,9 @@ const ServiceDetails = () => {
     const { _id, name, description, img, price } = service;
 
     useEffect(() => {
-        fetch(`https://enhance-server.vercel.app/reviews/${_id}`)
+        fetch(`http://localhost:5000/reviews/${_id}`)
             .then(res => res.json())
             .then(data => {
-                setReviews(data);
                 setLoadedReviews(data);
             })
     }, [_id])
@@ -47,6 +45,7 @@ const ServiceDetails = () => {
                         </div>
                         <p className="text-md lg:text-lg px-2 mb-2">{description}</p>
                         <p className='font-semibold text-xl lg:text-2xl text-center pt-2'>Price: {price} TK</p>
+                        <button></button>
                     </div>
                 </div>
 

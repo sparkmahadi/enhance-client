@@ -32,7 +32,7 @@ const AddReview = ({ id, name, reviewAddingHandler}) => {
 
         reviewAddingHandler(userReview);
 
-        fetch(`https://enhance-server.vercel.app/services/${id}`, {
+        fetch(`http://localhost:5000/services/${id}`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -61,7 +61,6 @@ const AddReview = ({ id, name, reviewAddingHandler}) => {
     }
     return (
         <div className='mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8'>
-            <ToastContainer position='top-center'/>
             <div className="flex flex-col p-8 shadow-sm rounded-xl lg:p-12 bg-slate-700 text-gray-100">
                 <div className="flex flex-col items-center w-full">
                     <h2 className="text-3xl font-semibold text-center mb-5">Your opinion matters!</h2>

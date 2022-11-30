@@ -76,34 +76,18 @@ const Nav = () => {
                                         user?.uid ?
                                             <li>
                                                 <NavLink
-                                                    to="/AddService"
-                                                    aria-label="AddService"
-                                                    title="AddService"
+                                                    to="/dashboard"
+                                                    aria-label="dashboard"
+                                                    title="dashboard"
                                                     className={`font-medium tracking-wide text-white hover:text-sky-300`}
                                                 >
-                                                    Add Service
+                                                    Dashboard
                                                 </NavLink>
                                             </li>
                                             :
                                             undefined
                                     }
-                                    {
-                                        user?.uid ?
-                                            <li>
-                                                <NavLink
-                                                    to={`/MyReviews?email=${user?.email}`}
-                                                    aria-label="MyReviews"
-                                                    title="MyReviews"
-                                                    className={`font-medium tracking-wide text-white hover:text-sky-300`}
-                                                >
-                                                    My Reviews
-                                                </NavLink>
-                                            </li>
-                                            :
-                                            undefined
-                                    }
-
-                                    <li>
+                                         <li>
                                         <NavLink to='/blog'
                                             aria-label="Blog"
                                             title="Blog"
@@ -226,33 +210,17 @@ const Nav = () => {
                                                 user?.uid ?
                                                     <li>
                                                         <NavLink
-                                                            to="/AddService"
-                                                            aria-label="AddService"
-                                                            title="AddService"
+                                                            to="/dashboard"
+                                                            aria-label="dashboard"
+                                                            title="dashboard"
                                                             className={`font-medium tracking-wide`}
                                                         >
-                                                            Add Service
+                                                            Dashboard
                                                         </NavLink>
                                                     </li>
                                                     :
                                                     undefined
                                             }
-                                            {
-                                                user?.uid ?
-                                                    <li>
-                                                        <NavLink
-                                                            to="/MyReviews"
-                                                            aria-label="MyReviews"
-                                                            title="MyReviews"
-                                                            className={`font-medium tracking-wide`}
-                                                        >
-                                                            My Reviews
-                                                        </NavLink>
-                                                    </li>
-                                                    :
-                                                    undefined
-                                            }
-
                                             <li>
                                                 <NavLink to='/blog'
                                                     aria-label="Blog"

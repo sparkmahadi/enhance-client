@@ -1,18 +1,19 @@
 import React from 'react';
 
-const ReviewDetails = ({ rvw, setRefetch}) => {
+const ReviewDetails = ({ rvw}) => {
     const { reviewerName, reviewTitle, description, reviewerImg, createdAt } = rvw;
     const convertedDate = new Date(createdAt);
+    // console.log(reviewerImg);
     return (
         <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 bg-slate-700 text-gray-100">
             <div className="flex justify-between p-4">
                 <div className="flex space-x-4">
                     <div>
                         {
-                            reviewerImg ?
+                            // reviewerImg ?
                                 <img src={reviewerImg} alt="" className="object-cover w-12 h-12 rounded-full bg-gray-500" />
-                                :
-                                <img src="https://i.ibb.co/G9HgLH0/no-photo.jpg" className='w-12 h-12 rounded-full' alt="" />
+                                // :
+                                // <img src="https://i.ibb.co/G9HgLH0/no-photo.jpg" className='w-12 h-12 rounded-full' alt="" />
                         }
                     </div>
                     <div>

@@ -59,7 +59,6 @@ const Profile = () => {
             <Helmet>
                 <title>My Profile - Enhance</title>
             </Helmet>
-            <ToastContainer position='top-center' />
             <h2 className='titles-bg p-2 text-white text-center text-2xl font-semibold'>Your Profile</h2>
             <form onSubmit={handleUpdateUserProfile} className='container mx-auto second-bg px-10 my-5 py-10 rounded-lg text-white md:w-2/3 lg:w-1/2'>
 

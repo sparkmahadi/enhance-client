@@ -6,9 +6,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import './MyReviews.css';
 import { Helmet } from 'react-helmet-async';
 import { useEffect } from 'react';
-import { AuthContext } from '../../contexts/UserContext';
-import Spinner from '../Spinner/Spinner';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/UserContext';
+import Spinner from '../../Spinner/Spinner';
 
 const MyReviews = () => {
     const [reviewsLoading, setReviewsLoading] = useState(true);
@@ -16,7 +16,7 @@ const MyReviews = () => {
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
-        fetch(`https://enhance-server.vercel.app/MyReviews?email=${user.email}`, {
+        fetch(`http://localhost:5000/myreviews?email=${user.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('enhance-token')}`
             }
@@ -37,7 +37,7 @@ const MyReviews = () => {
         const remaining = reviews.filter(rvw => rvw._id !== id);
         setReviews(remaining);
 
-        fetch(`https://enhance-server.vercel.app/reviews/${id}`, {
+        fetch(`http://localhost:5000/reviews/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
@@ -54,16 +54,6 @@ const MyReviews = () => {
             <Helmet>
                 <title>My Reviews - Enhance</title>
             </Helmet>
-            <ToastContainer position="top-center"
-                autoClose={2000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="light" />
 
             {
                 reviewsLoading ? <div className='custom-align'><Spinner></Spinner></div>

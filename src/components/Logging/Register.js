@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/UserContext';
 import { Helmet } from 'react-helmet-async';
 import Spinner from '../Spinner/Spinner';
+import { format } from 'date-fns'
 
 const Register = () => {
     const [error, setError] = useState('');
@@ -20,6 +21,28 @@ const Register = () => {
                 console.log(user);
                 setError('');
                 form.reset();
+                const createdUser = {
+                    name: user.displayName,
+                    email: user.email,
+                    img: 'photoURL',
+                    totalOrder: 0,
+                    verified: false,
+                    reviews: [],
+                    createdTime: format(new Date(), 'Pp')
+                }
+                if(user){
+                    fetch('http://localhost:5000/users', {
+                        method: 'POST',
+                        headers:{
+                            'content-type': 'application/json'
+                        },
+                        body: JSON.stringify(createdUser)
+                    })
+                    .then(res=>res.json())
+                    .then(data=>{
+                        console.log(data);
+                    })
+                }
             })
             .catch(e => {
                 console.error(e);

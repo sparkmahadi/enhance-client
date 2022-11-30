@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { AuthContext } from '../../contexts/UserContext';
 import { Helmet } from 'react-helmet-async';
+import { AuthContext } from '../../../contexts/UserContext';
 
 const AddService = () => {
     const {user} = useContext(AuthContext);
@@ -20,7 +20,7 @@ const AddService = () => {
         const service = { name, description, img, price, userEmail};
         console.log(service);
 
-        fetch('https://enhance-server.vercel.app/services', {
+        fetch('http://localhost:5000/services', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -29,6 +29,7 @@ const AddService = () => {
         })
             .then(res => res.json())
             .then(data => {
+                console.log(data);
                 if (data.acknowledged) {
                     toast.success('Service is added successfully!')
                 }
@@ -42,39 +43,27 @@ const AddService = () => {
             <Helmet>
                 <title>Add Service - Enhance</title>
             </Helmet>
-            <ToastContainer
-                position="top-center"
-                autoClose={2000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="light"
-            />
-            <div className="flex flex-col p-6 rounded-md sm:p-10 second-bg text-gray-100">
+            <div className="flex flex-col p-6 rounded-md sm:p-10 second-bg">
                 <div className="mb-8 text-center">
-                    <h1 className="my-3 text-2xl lg:text-4xl font-bold">Add A New Service</h1>
+                    <h1 className="my-3 text-2xl lg:text-4xl font-bold text-gray-100">Add A New Service</h1>
                 </div>
                 <form onSubmit={handleSubmit} className="space-y-12 ng-untouched ng-pristine ng-valid lg:px-36">
                     <div className="space-y-4">
                         <div>
-                            <label htmlFor="name" className="block mb-2 text-md">Service Name</label>
-                            <input type="name" name="name" id="name" placeholder="Enter Service Name" className="w-full px-3 py-2 border rounded-md border-gray-700 text-gray-100" required />
+                            <label htmlFor="name" className="block mb-2 text-md text-gray-100">Service Name</label>
+                            <input type="name" name="name" id="name" placeholder="Enter Service Name" className="w-full px-3 py-2 border rounded-md border-gray-700" required />
                         </div>
                         <div>
-                            <label htmlFor="description" className="block mb-2 text-md">Description</label>
-                            <input type="text" name="description" id="description" placeholder="Enter Description" className="w-full px-3 py-2 border rounded-md border-gray-700 text-gray-100" required />
+                            <label htmlFor="description" className="block mb-2 text-md text-gray-100">Description</label>
+                            <input type="text" name="description" id="description" placeholder="Enter Description" className="w-full px-3 py-2 border rounded-md border-gray-700" required />
                         </div>
                         <div>
-                            <label htmlFor="img" className="block mb-2 text-md">ImageURL</label>
-                            <input type="text" name="img" id="img" placeholder="Enter Image URL" className="w-full px-3 py-2 border rounded-md border-gray-700 text-gray-100" required />
+                            <label htmlFor="img" className="block mb-2 text-md text-gray-100">ImageURL</label>
+                            <input type="text" name="img" id="img" placeholder="Enter Image URL" className="w-full px-3 py-2 border rounded-md border-gray-700" required />
                         </div>
                         <div>
-                            <label htmlFor="price" className="block mb-2 text-md">Price</label>
-                            <input type="number" name="price" id="price" placeholder="Enter Price" className="w-full px-3 py-2 border rounded-md border-gray-700 text-gray-100" required />
+                            <label htmlFor="price" className="block mb-2 text-md text-gray-100">Price</label>
+                            <input type="number" name="price" id="price" placeholder="Enter Price" className="w-full px-3 py-2 border rounded-md border-gray-700" required />
                         </div>
 
                     </div>
