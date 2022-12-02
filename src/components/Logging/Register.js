@@ -84,7 +84,7 @@ const Register = () => {
             createdTime: format(new Date(), 'Pp')
         }
 
-        fetch('http://localhost:5000/users', {
+        fetch('https://enhance-server.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -16,7 +16,7 @@ const MyReviews = () => {
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myreviews?email=${user.email}`, {
+        fetch(`https://enhance-server.vercel.app/myreviews?email=${user.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('enhance-token')}`
             }
@@ -39,7 +39,7 @@ const MyReviews = () => {
             const remaining = reviews.filter(rvw => rvw._id !== id);
             setReviews(remaining);
     
-            fetch(`http://localhost:5000/reviews/${id}`, {
+            fetch(`https://enhance-server.vercel.app/reviews/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

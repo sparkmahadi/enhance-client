@@ -14,14 +14,14 @@ const AllReviews = () => {
     const {data: reviews, isLoading, refetch} = useQuery({
         queryKey: ['reviews'],
         queryFn: async () =>{
-           const res = await fetch('http://localhost:5000/reviews');
+           const res = await fetch('https://enhance-server.vercel.app/reviews');
            const data = await res.json();
            return data;
         }
     })
 
     const handleDeleteReview = (id) => {
-        fetch(`http://localhost:5000/reviews/${id}`, {
+        fetch(`https://enhance-server.vercel.app/reviews/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

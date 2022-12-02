@@ -32,7 +32,7 @@ const AddReview = ({ id, name, reviewAddingHandler}) => {
 
         reviewAddingHandler(userReview);
 
-        fetch(`http://localhost:5000/services/${id}`, {
+        fetch(`https://enhance-server.vercel.app/services/${id}`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

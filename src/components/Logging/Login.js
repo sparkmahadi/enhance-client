@@ -33,7 +33,7 @@ const Login = () => {
                 }
 
                 // jwt token
-                fetch('http://localhost:5000/jwt', {
+                fetch('https://enhance-server.vercel.app/jwt', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -65,7 +65,7 @@ const Login = () => {
                 }
 
                 // jwt token
-                fetch('http://localhost:5000/jwt', {
+                fetch('https://enhance-server.vercel.app/jwt', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

@@ -18,7 +18,7 @@ const ServiceDetails = () => {
     const { _id, name, description, img, price } = service;
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews/${_id}`)
+        fetch(`https://enhance-server.vercel.app/reviews/${_id}`)
             .then(res => res.json())
             .then(data => {
                 setLoadedReviews(data);

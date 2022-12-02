@@ -21,7 +21,7 @@ const BookingModal = ({ serviceBooking, setServiceBooking, refetch }) => {
             buyerName, buyerEmail, buyerPhone, buyerLocation, serviceName: name, price, serviceId: _id
         }
 
-        fetch(`http://localhost:5000/serviceBookings?email=${user?.email}&serviceId=${_id}`, {
+        fetch(`https://enhance-server.vercel.app/serviceBookings?email=${user?.email}&serviceId=${_id}`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

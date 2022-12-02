@@ -14,7 +14,7 @@ const MyOrders = () => {
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/serviceBookings?email=${user.email}`, {
+        fetch(`https://enhance-server.vercel.app/serviceBookings?email=${user.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('enhance-token')}`
             }

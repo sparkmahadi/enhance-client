@@ -30,12 +30,12 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/')
+                loader: () => fetch('https://enhance-server.vercel.app/')
             },
             {
                 path: '/home',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/')
+                loader: () => fetch('https://enhance-server.vercel.app/')
             },
             {
                 path: '/services',
@@ -44,7 +44,7 @@ const router = createBrowserRouter([
             {
                 path: '/services/:id',
                 element: <ServiceDetails></ServiceDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+                loader: ({ params }) => fetch(`https://enhance-server.vercel.app/services/${params.id}`)
             },
             {
                 path: '/register',
@@ -95,7 +95,7 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/review/:id',
                 element: <UpdateReview></UpdateReview>,
-                loader: ({params}) => fetch(`http://localhost:5000/review/${params.id}`)
+                loader: ({params}) => fetch(`https://enhance-server.vercel.app/review/${params.id}`)
             },
             {
                 path: '/dashboard/myorders',
@@ -116,7 +116,7 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/payment/:id',
                 element: <Payment></Payment>,
-                loader: ({params}) => fetch(`http://localhost:5000/serviceBookings/${params.id}`)
+                loader: ({params}) => fetch(`https://enhance-server.vercel.app/serviceBookings/${params.id}`)
             },
         ]
     }

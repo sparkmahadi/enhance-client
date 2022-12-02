@@ -20,7 +20,7 @@ const AddService = () => {
         const service = { name, description, img, price, userEmail};
         console.log(service);
 
-        fetch('http://localhost:5000/services', {
+        fetch('https://enhance-server.vercel.app/services', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
