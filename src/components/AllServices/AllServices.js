@@ -20,14 +20,14 @@ const AllServices = () => {
         // setLoading(false);
     },[])
     return (
-        <div className='sm:max-w-xl md:max-w-full lg:max-w-screen-xl p-5 md:p-10 lg:p-8 mx-5 md:mx-10 lg:mx-auto my-5 rounded-lg second-bg min-h-screen'>
+        <div className='sm:max-w-xl md:max-w-full lg:max-w-screen-xl p-5 md:p-10 lg:p-8 mx-5 md:mx-10 lg:mx-auto rounded-lg second-bg min-h-screen'>
             <Helmet>
                 <title>Services - Enhance</title>
             </Helmet>
 
             
 
-            <h2 className='text-white px-4 py-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-10 lg:px-8 text-2xl uppercase text-center rounded-lg'>Services</h2>
+            <h2 className='text-white text-xl lg:text-2xl font-semibold mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-10 lg:px-8 uppercase text-center rounded-lg'>Services</h2>
             <div className='custom-align z-10'>
             {
                 loading ? <Spinner></Spinner>

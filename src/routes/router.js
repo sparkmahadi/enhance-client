@@ -11,7 +11,6 @@ import DashboardLayout from "../layout/DashboardLayout";
 import Main from "../layout/Main";
 import ServiceDetails from './../components/ServiceDetails/ServiceDetails';
 import PrivateRoute from "./PrivateRoute";
-import UpdateReview from "../components/Dashboard/MyReviews/UpdateReview";
 import MyReviews from "../components/Dashboard/MyReviews/MyReviews";
 import MyOrders from './../components/Dashboard/MyOrders/MyOrders';
 import AllBuyers from './../components/Dashboard/AllBuyers/AllBuyers';
@@ -20,6 +19,7 @@ import MyServices from './../components/Dashboard/MyServices/MyServices';
 import Consultation from "../components/ServiceDetails/Consultation";
 import AdminRoute from "./AdminRoute";
 import Payment from "../components/Dashboard/Payment/Payment";
+import UpdateReview from './../components/Dashboard/MyReviews/UpdateReview';
 
 const router = createBrowserRouter([
     {
@@ -110,7 +110,7 @@ const router = createBrowserRouter([
                 element: <AdminRoute><AllBuyers></AllBuyers></AdminRoute>
             },
             {
-                path: '/dashboard/AllReviews',
+                path: '/dashboard/allReviews',
                 element: <AdminRoute><AllReviews></AllReviews></AdminRoute>
             },
             {

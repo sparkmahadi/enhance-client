@@ -7,15 +7,16 @@ import MyReviewsRow from './../MyReviews/MyReviewsRow';
 import { useContext } from 'react';
 import { AuthContext } from '../../../contexts/UserContext';
 import { toast } from 'react-toastify';
+import AllReviewsRow from './AllReviewsRow';
 
 const AllReviews = () => {
     const { user, logOut } = useContext(AuthContext);
     const {data: reviews, isLoading, refetch} = useQuery({
         queryKey: ['reviews'],
-        queryFn: async()=>{
-            const res= await fetch('http://localhost:5000/reviews');
-            const data = res.json();
-            return data;
+        queryFn: async () =>{
+           const res = await fetch('http://localhost:5000/reviews');
+           const data = await res.json();
+           return data;
         }
     })
 
@@ -39,8 +40,8 @@ const AllReviews = () => {
                 <div className='custom-align'><Spinner></Spinner></div>
             }
             
-            <div className="overflow-x-auto relative rounded-lg">
-                        <table className="w-full text-sm text-left hidden md:block">
+            <div className="overflow-x-auto relative rounded-lg hidden md:block">
+                        <table className=" table w-full text-sm">
                             <thead className="text-xs uppercase">
                                 <tr>
                                     <th scope="col" className="">
@@ -50,13 +51,13 @@ const AllReviews = () => {
                                         Service
                                     </th>
                                     <th scope="col" className="">
-                                        Total Order
+                                        Review Title
                                     </th>
                                     <th scope="col" className="">
-                                        Reviews
+                                        Review Description
                                     </th>
                                     <th scope="col" className="">
-                                        Price
+                                        Reviewer Name
                                     </th>
                                     <th scope="col" className="">
                                         Actions
@@ -65,12 +66,12 @@ const AllReviews = () => {
                             </thead>
                             <tbody>
                                 {
-                                    reviews.map((review, idx) => <MyReviewsRow
+                                    reviews?.map((review, idx) => <AllReviewsRow
                                         key={review._id}
                                         idx={idx+1}
                                         review={review}
                                         handleDeleteReview={handleDeleteReview}
-                                    ></MyReviewsRow>)
+                                    ></AllReviewsRow>)
                                 }
                             </tbody>
                         </table>
@@ -78,7 +79,7 @@ const AllReviews = () => {
 
                         <div>
                             {
-                                reviews.map(review =>
+                                reviews?.map(review =>
                                     <div key={review._id} className='py-5 px-10 second-bg text-white rounded-lg md:hidden mb-5'>
                                         <ul className='list-disc list-outside'>
                                             <li><span className='font-semibold'>Service : </span> {review.serviceName}</li>

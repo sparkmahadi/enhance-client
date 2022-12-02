@@ -33,21 +33,23 @@ const MyReviews = () => {
             })
     }, [user.email])
 
-    const deleteHandlerForUI = (id) => {
-        const remaining = reviews.filter(rvw => rvw._id !== id);
-        setReviews(remaining);
-
-        fetch(`http://localhost:5000/reviews/${id}`, {
-            method: 'DELETE'
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.deletedCount > 0) {
-                    toast("Review is deleted successfully!!!");
-                }
-                console.log(data);
+    const deleteHandlerForUI = (id,serviceName) => {
+        const agree = window.confirm(`Are you sure to delete the review on ${serviceName}?`)
+        if(agree){
+            const remaining = reviews.filter(rvw => rvw._id !== id);
+            setReviews(remaining);
+    
+            fetch(`http://localhost:5000/reviews/${id}`, {
+                method: 'DELETE'
             })
-
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount > 0) {
+                        toast("Review is deleted successfully!!!");
+                    }
+                    console.log(data);
+                })
+        }
     }
     return (
         <div className='min-h-screen'>
@@ -71,10 +73,10 @@ const MyReviews = () => {
                                                 Service Name
                                             </th>
                                             <th className="">
-                                                Feedback Title
+                                                My Feedback
                                             </th>
                                             <th className="">
-                                                Description
+                                                My Coments
                                             </th>
                                             <th className="">
                                                 Actions
@@ -98,13 +100,13 @@ const MyReviews = () => {
                                     reviews.map(review =>
                                         <div key={review._id} className='py-5 px-10 second-bg text-white rounded-lg md:hidden mb-5'>
                                             <ul className='list-disc list-outside'>
-                                                <li><span className='font-semibold'>Service : </span> {review.serviceName}</li>
-                                                <li><span className='font-semibold'>My Feedback : </span>{review.reviewTitle}</li>
-                                                <li><span className='font-semibold'>My Comments : </span> {review.description}</li>
+                                                <li><span className=''>Service : </span> {review.serviceName}</li>
+                                                <li><span className=''>My Feedback : </span>{review.reviewTitle}</li>
+                                                <li><span className=''>My Comments : </span> {review.description}</li>
                                                 <li>Actions:
-                                                    <div className='px'>
-                                                    <button onClick={() => deleteHandlerForUI(review._id)} className='btn bg-red-800 p-1 md:p-2 rounded-lg text-white mr-2 mb-2 md:mb-0'>Delete</button>
-                                                    <Link to={`/review/${review._id}`}><button className='btn bg-green-800 p-1 md:p-2 rounded-lg text-white'>Edit</button></Link>
+                                                    <div className=''>
+                                                    <button onClick={() => deleteHandlerForUI(review._id, review.serviceName)} className='btn btn-error btn-sm text-white mr-2'>Delete</button>
+                                                    <Link to={`/dashboard/review/${review._id}`}><button className='btn btn-success btn-sm text-white'>Edit</button></Link>
                                                     </div>
                                                 </li>
                                             </ul>

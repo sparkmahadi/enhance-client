@@ -19,7 +19,7 @@ const MyServices = () => {
         console.log(serviceId);
     }
     return (
-        <div className='sm:max-w-xl md:max-w-full lg:max-w-screen-xl px-5 md:px-10 lg:px-8 mx-auto my-5 min-h-screen'>
+        <div className='sm:max-w-xl md:max-w-full lg:max-w-screen-xl mx-auto min-h-screen'>
         <Helmet>
             <title>Dashboard - Enhance</title>
         </Helmet>
@@ -30,26 +30,26 @@ const MyServices = () => {
                 services.length === 0 ?
                     <p className='text-5xl mx-auto custom-align'>No reviews were added...</p>
                     :
-                    <div className="overflow-x-auto relative rounded-lg">
-                        <table className="w-full text-sm text-left text-gray-400 hidden md:block">
-                            <thead className="text-xs uppercase second-bg text-white">
+                    <div className="overflow-x-auto relative rounded-lg hidden md:block">
+                        <table className="table w-full text-sm text-left">
+                            <thead className="text-xs uppercase">
                                 <tr>
-                                    <th scope="col" className="py-3 lg:px-6 text-center border border-sky-200">
+                                    <th scope="col" className="">
                                         SL
                                     </th>
-                                    <th scope="col" className="py-3 lg:px-6 text-center border border-sky-200">
+                                    <th scope="col" className="">
                                         Service
                                     </th>
-                                    <th scope="col" className="py-3 lg:px-6 text-center border border-sky-200">
+                                    <th scope="col" className="">
                                         Total Order
                                     </th>
-                                    <th scope="col" className="py-3 lg:px-6 text-center border border-sky-200">
+                                    <th scope="col" className="">
                                         Reviews
                                     </th>
-                                    <th scope="col" className="py-3 lg:px-6 text-center border border-sky-200">
+                                    <th scope="col" className="">
                                         Price
                                     </th>
-                                    <th scope="col" className="py-3 lg:px-6 text-center border border-sky-200">
+                                    <th scope="col" className="">
                                         Actions
                                     </th>
                                 </tr>

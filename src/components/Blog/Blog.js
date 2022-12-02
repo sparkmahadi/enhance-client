@@ -9,7 +9,7 @@ const Blog = () => {
             </Helmet>
             <section>
                 <div className="container flex flex-col justify-center p-4 mx-auto md:p-8">
-                    <h2 className="mb-12 text-xl lg:text-3xl font-bold text-center titles-bg p-2 rounded-lg text-white lg:mx-32">Blog : (Database, NodeJS and JWT)</h2>
+                    <h2 className="mb-12 text-xl lg:text-3xl font-semibold text-center p-2 rounded-lg text-white lg:mx-32">Blog : (Database, NodeJS and JWT)</h2>
                     <div className="flex flex-col divide-y sm:px-8 lg:px-12 xl:px-32 divide-gray-300 text-white">
 
 

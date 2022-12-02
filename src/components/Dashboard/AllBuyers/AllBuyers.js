@@ -15,7 +15,7 @@ const AllBuyers = () => {
     })
     console.log(users);
     return (
-        <div className='sm:max-w-xl md:max-w-full lg:max-w-screen-xl px-5 md:px-10 lg:px-8 mx-auto my-5 min-h-screen'>
+        <div className='sm:max-w-xl md:max-w-full lg:max-w-screen-xl min-h-screen'>
         <Helmet>
             <title>My Users - Enhance</title>
         </Helmet>
@@ -27,39 +27,39 @@ const AllBuyers = () => {
                 users.length === 0 ?
                     <p className='text-5xl mx-auto custom-align'>No users were added...</p>
                     :
-                    <div className="overflow-x-auto relative rounded-lg">
-                        <table className="w-full text-sm text-left text-gray-400 md:block">
-                            <thead className="text-xs uppercase second-bg text-white">
+                    <div className="overflow-x-auto relative rounded-lg hidden md:block">
+                        <table className="table w-full">
+                            <thead className="text-xs uppercase">
                                 <tr>
-                                    <th scope="col" className="py-3 lg:px-6 text-center border border-sky-200">
+                                    <th scope="col" className="">
                                         Name
                                     </th>
-                                    <th scope="col" className="py-3 lg:px-6 text-center border border-sky-200">
+                                    <th scope="col" className="">
                                         Email
                                     </th>
-                                    <th scope="col" className="py-3 lg:px-6 text-center border border-sky-200">
+                                    <th scope="col" className="">
                                         Photo
                                     </th>
-                                    <th scope="col" className="py-3 lg:px-6 text-center border border-sky-200">
+                                    <th scope="col" className="">
                                         Total Orders
                                     </th>
-                                    <th scope="col" className="py-3 lg:px-6 text-center border border-sky-200">
+                                    <th scope="col" className="">
                                         Reviews
                                     </th>
-                                    <th scope="col" className="py-3 lg:px-6 text-center border border-sky-200">
+                                    <th scope="col" className="">
                                         Created Time
                                     </th>
-                                    <th scope="col" className="py-3 lg:px-6 text-center border border-sky-200">
+                                    <th scope="col" className="">
                                         Verification
                                     </th>
-                                    <th scope="col" className="py-3 lg:px-6 text-center border border-sky-200">
+                                    <th scope="col" className="">
                                         Delete
                                     </th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {
-                                    users.map(user => <AllBuyersRow
+                                    users?.map(user => <AllBuyersRow
                                         key={user._id}
                                         user={user}
                                     ></AllBuyersRow>)
