@@ -59,9 +59,7 @@ const Profile = () => {
             <Helmet>
                 <title>My Profile - Enhance</title>
             </Helmet>
-            <h2 className='titles-bg p-2 text-white text-center text-2xl font-semibold'>Your Profile</h2>
-            <form onSubmit={handleUpdateUserProfile} className='container mx-auto second-bg px-10 my-5 py-10 rounded-lg text-white md:w-2/3 lg:w-1/2'>
-
+            <form onSubmit={handleUpdateUserProfile} className='container mx-auto bg-white px-10 py-10 rounded-lg md:w-2/3 lg:w-1/2'>
                 <div className="mb-6">
                     <label htmlFor="name" className="block mb-2 text-lg font-medium">Your Full Name:</label>
                     <input type="text" name='name' id="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" defaultValue={name} required />
@@ -76,7 +74,7 @@ const Profile = () => {
                     <label htmlFor="photoURL" className="block mb-2 text-lg font-medium">Your Photo URL</label>
                     <input type="text" name='photoURL' id="photoURL" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" defaultValue={photoURL} />
                 </div>
-                <button type="submit" className="text-white btn-bg hover:bg-blue-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5">Update</button>
+                <button type="submit" className="btn btn-sm text-white">Update</button>
             </form>
         </div>
     );

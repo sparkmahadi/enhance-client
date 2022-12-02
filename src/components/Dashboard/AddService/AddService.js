@@ -39,13 +39,13 @@ const AddService = () => {
     }
 
     return (
-        <div className='sm:max-w-xl md:max-w-full lg:max-w-screen-xl p-5 md:p-10 lg:p-8 mx-auto'>
+        <div className='mx-auto'>
             <Helmet>
                 <title>Add Service - Enhance</title>
             </Helmet>
-            <div className="flex flex-col p-6 rounded-md sm:p-10 second-bg">
+            <div className="flex flex-col rounded-md">
                 <div className="mb-8 text-center">
-                    <h1 className="my-3 text-2xl lg:text-4xl font-bold text-gray-100">Add A New Service</h1>
+                    <h1 className="text-xl lg:text-3xl font-bold text-gray-100">Add A New Service</h1>
                 </div>
                 <form onSubmit={handleSubmit} className="space-y-12 ng-untouched ng-pristine ng-valid lg:px-36">
                     <div className="space-y-4">

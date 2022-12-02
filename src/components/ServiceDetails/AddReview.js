@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useContext, useEffect } from 'react';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from '../../contexts/UserContext';
 
@@ -55,6 +55,7 @@ const AddReview = ({ id, name, reviewAddingHandler}) => {
         const value = event.target.value;
         const newReview = { ...userReview };
         newReview[field] = value;
+        newReview.reviewerName = user?.displayName;
         newReview.serviceId = id;
         newReview.serviceName = name;
         setUserReview(newReview);
@@ -67,7 +68,6 @@ const AddReview = ({ id, name, reviewAddingHandler}) => {
 
                     <div className="flex flex-col w-full">
                         <form onSubmit={handleAddReview}>
-                            <input onBlur={handleInputChange} type="text" name='reviewerName' className='mb-5 rounded-lg w-1/2 mx-auto block p-2 text-gray-100 bg-gray-800' placeholder='Your Name' required/>
                             <input onBlur={handleInputChange} type="text" name='reviewTitle' className='mb-5 rounded-lg w-1/2 mx-auto block p-2 text-gray-100 bg-gray-800' placeholder='Your Feedback Title' required/>
                             <textarea onBlur={handleInputChange} name='description' rows="3" placeholder="Comments..." className="resize-none text-gray-100 bg-gray-800 className='mb-5 rounded-lg w-1/2 mx-auto block p-2" required>
                             </textarea>

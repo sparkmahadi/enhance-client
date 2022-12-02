@@ -16,19 +16,19 @@ const MyReviewsRow = ({review, deleteHandlerForUI}) => {
     }
 
     return (
-        <tr className="bg-white border-b second-bg text-white">
-            <th scope="row" className="py-4 px-1 lg:px-6 text-center border-x border-sky-200 font-medium">
+        <tr className="">
+            <th scope="row" className=" font-medium">
                 {serviceName}
             </th>
-            <td className="py-4 px-1 lg:px-6 text-center border-x border-sky-200">
+            <td className="">
                 {reviewTitle}
             </td>
-            <td className="py-4 px-1 lg:px-6 text-center border-x border-sky-200 break-words">
-                {description}
+            <td className="break-words break-normal">
+                {description.slice(0,20)}...
             </td>
-            <td className="py-4 px-1 lg:px-6 text-center border-x border-sky-200 md:flex">
-                <button onClick={()=>handleDeleteReview(_id)} className='btn bg-red-800 p-1 md:p-2 rounded-lg text-white mr-2 mb-2 md:mb-0'>Delete</button>
-                <Link to={`/review/${_id}`}><button className='btn bg-green-800 p-1 md:p-2 rounded-lg text-white'>Edit</button></Link>
+            <td className=" md:flex">
+                <button onClick={()=>handleDeleteReview(_id)} className='btn btn-error btn-sm p-1 md:p-2 rounded-lg text-white mr-2 mb-2 md:mb-0'>Delete</button>
+                <Link to={`/review/${_id}`}><button className='btn btn-success btn-sm p-1 md:p-2 rounded-lg text-white'>Edit</button></Link>
             </td>
         </tr>
     );

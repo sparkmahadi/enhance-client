@@ -11,7 +11,7 @@ const AllBuyersRow = ({user, handleDeleteUser}) => {
             {email}
         </td>
         <td className="py-4 px-1 lg:px-6 text-center border-x border-sky-200">
-            {img}
+            <img src={img} alt="" />
         </td>
         <td className="py-4 px-1 lg:px-6 text-center border-x border-sky-200 break-words">
             {totalOrder}

@@ -10,9 +10,9 @@ const Services = ({ service, setLoading }) => {
 
     useEffect(()=>{
         setLoading(false);
-    },[])
+    },[setLoading])
     return (
-        <div className='mx-auto drop-shadow-xl'>
+        <div className='mx-auto shadow-xl'>
             
             <div className="lg:max-w-sm min-h-full p-6 rounded-md shadow-md bg-card">
                 <PhotoProvider>

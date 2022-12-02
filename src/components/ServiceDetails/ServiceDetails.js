@@ -7,8 +7,10 @@ import AddReview from './AddReview';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import BookingModal from '../BookingModal/BookingModal';
 
 const ServiceDetails = () => {
+    const [serviceBooking, setServiceBooking] = useState(null);
     const [loadedReviews, setLoadedReviews] = useState([]);
     const { user } = useContext(AuthContext);
     const location = useLocation();
@@ -45,7 +47,10 @@ const ServiceDetails = () => {
                         </div>
                         <p className="text-md lg:text-lg px-2 mb-2">{description}</p>
                         <p className='font-semibold text-xl lg:text-2xl text-center pt-2'>Price: {price} TK</p>
-                        <button></button>
+                        <div className='flex justify-center items-center gap-5 mt-10'>
+                            <label onClick={()=>setServiceBooking(service)}  className="btn text-center cursor-pointer p-2 rounded-lg w-1/4 btn-bg" htmlFor="service-booking-modal">Book Now</label>
+                            <Link to='/consultationAppointment' className='btn p-2 rounded-lg w-1/4 btn-bg'>For Consultation</Link>
+                        </div>
                     </div>
                 </div>
 
@@ -78,6 +83,13 @@ const ServiceDetails = () => {
 
 
             </section>
+            {
+                serviceBooking &&
+                <BookingModal
+                serviceBooking={serviceBooking}
+                setServiceBooking={setServiceBooking}
+                ></BookingModal>
+            }
         </div>
     );
 };

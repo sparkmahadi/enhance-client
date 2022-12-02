@@ -17,6 +17,9 @@ import MyOrders from './../components/Dashboard/MyOrders/MyOrders';
 import AllBuyers from './../components/Dashboard/AllBuyers/AllBuyers';
 import AllReviews from './../components/Dashboard/AllReviews/AllReviews';
 import MyServices from './../components/Dashboard/MyServices/MyServices';
+import Consultation from "../components/ServiceDetails/Consultation";
+import AdminRoute from "./AdminRoute";
+import Payment from "../components/Dashboard/Payment/Payment";
 
 const router = createBrowserRouter([
     {
@@ -62,12 +65,16 @@ const router = createBrowserRouter([
             {
                 path: '*',
                 element: <ErrorPage></ErrorPage>
+            },
+            {
+                path: '/consultationAppointment',
+                element: <Consultation></Consultation>
             }
         ]
     },
     {
         path: '/dashboard',
-        element: <DashboardLayout></DashboardLayout>,
+        element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
         children: [
             {
                 path: '/dashboard',
@@ -79,11 +86,11 @@ const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/addService',
-                element: <PrivateRoute><AddService></AddService></PrivateRoute>
+                element: <AdminRoute><AddService></AddService></AdminRoute>
             },
             {
                 path: '/dashboard/myReviews',
-                element: <PrivateRoute><MyReviews></MyReviews></PrivateRoute>
+                element: <MyReviews></MyReviews>
             },
             {
                 path: '/dashboard/review/:id',
@@ -96,15 +103,20 @@ const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/myServices',
-                element: <MyServices></MyServices>
+                element: <AdminRoute><MyServices></MyServices></AdminRoute>
             },
             {
                 path: '/dashboard/allBuyers',
-                element: <AllBuyers></AllBuyers>
+                element: <AdminRoute><AllBuyers></AllBuyers></AdminRoute>
             },
             {
                 path: '/dashboard/AllReviews',
-                element: <AllReviews></AllReviews>
+                element: <AdminRoute><AllReviews></AllReviews></AdminRoute>
+            },
+            {
+                path: '/dashboard/payment/:id',
+                element: <Payment></Payment>,
+                loader: ({params}) => fetch(`http://localhost:5000/serviceBookings/${params.id}`)
             },
         ]
     }

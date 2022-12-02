@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 
 const MyServicesRow = ({service, idx}) => {
     const {description, img, name, price, _id} = service;
-    console.log(service);
-
     const handleDeleteService = id =>{
 
     }

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import MyReviewsRow from './MyReviewsRow';
 import { useState } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './MyReviews.css';
 import { Helmet } from 'react-helmet-async';
@@ -50,7 +50,7 @@ const MyReviews = () => {
 
     }
     return (
-        <div className='sm:max-w-xl md:max-w-full lg:max-w-screen-xl px-5 md:px-10 lg:px-8 mx-auto my-5 min-h-screen'>
+        <div className='min-h-screen'>
             <Helmet>
                 <title>My Reviews - Enhance</title>
             </Helmet>
@@ -63,33 +63,34 @@ const MyReviews = () => {
                         <p className='text-5xl mx-auto custom-align'>No reviews were added...</p>
                         :
                         <div className="overflow-x-auto relative rounded-lg">
-                            <table className="w-full text-sm text-left text-gray-400 hidden md:block">
-                                <thead className="text-xs uppercase second-bg text-white">
-                                    <tr>
-                                        <th scope="col" className="py-3 lg:px-6 text-center border border-sky-200">
-                                            Service
-                                        </th>
-                                        <th scope="col" className="py-3 lg:px-6 text-center border border-sky-200">
-                                            My Feedback
-                                        </th>
-                                        <th scope="col" className="py-3 lg:px-6 text-center border border-sky-200">
-                                            My Comments
-                                        </th>
-                                        <th scope="col" className="py-3 lg:px-6 text-center border border-sky-200">
-                                            Actions
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {
-                                        reviews.map(review => <MyReviewsRow
-                                            key={review._id}
-                                            review={review}
-                                            deleteHandlerForUI={deleteHandlerForUI}
-                                        ></MyReviewsRow>)
-                                    }
-                                </tbody>
-                            </table>
+                            <div className="overflow-x-auto hidden md:block">
+                                <table className="table w-full">
+                                    <thead className="text-xs uppercase">
+                                        <tr>
+                                            <th className="">
+                                                Service Name
+                                            </th>
+                                            <th className="">
+                                                Feedback Title
+                                            </th>
+                                            <th className="">
+                                                Description
+                                            </th>
+                                            <th className="">
+                                                Actions
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {
+                                            reviews.map(review => <MyReviewsRow
+                                                key={review._id}
+                                                review={review}
+                                            ></MyReviewsRow>)
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
 
 
                             <div>

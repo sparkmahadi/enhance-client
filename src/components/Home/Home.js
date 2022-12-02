@@ -42,8 +42,8 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className='p-5 second-bg text-gray-100 rounded-lg mb-10'>
-                <h2 className='titles-bg text-white px-4 py-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 text-2xl uppercase text-center rounded-lg'>Services</h2>
+            <div className='p-5 text-gray-100 rounded-lg mb-10'>
+                <h2 className='text-white px-4 py-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 text-2xl uppercase text-center rounded-lg'>Services</h2>
                 <div className='grid lg:grid-cols-3 gap-10 py-10'>
                     {
                         services.map(service => <Services key={service._id} service={service} setLoading={setLoading}></Services>)
@@ -54,11 +54,11 @@ const Home = () => {
             </div>
 
 
-            <section className="pb-10 sm:p-12 second-bg text-gray-100 rounded-lg mb-10">
-                <h2 className='titles-bg text-white px-4 py-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 text-2xl uppercase text-center rounded-lg'>My Process</h2>
+            <section className=" text-gray-100 rounded-lg mb-10">
+                <h2 className='text-white px-4 py-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 text-2xl uppercase text-center rounded-lg'>My Process</h2>
                 <div className="container p-6 mx-auto space-y-8">
                     <div className="space-y-2 text-center">
-                        <p className="font-serif text-lg lg:px-36">When it comes to interior design, there is no single right or wrong way to go about it. However, there are certain steps that should always be taken during the process, in order to ensure that the end result is a beautiful and functional space.</p>
+                        <p className="font-serif text-lg lg:px-20">When it comes to interior design, there is no single right or wrong way to go about it. However, there are certain steps that should always be taken during the process, in order to ensure that the end result is a beautiful and functional space.</p>
                     </div>
                     <div className="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-4">
                         <article className="flex flex-col third-bg rounded-lg">

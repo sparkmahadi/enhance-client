@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import UserContext from './contexts/UserContext';
 import { HelmetProvider } from 'react-helmet-async';
+import 'react-day-picker/dist/style.css';
 import {
   QueryClient,
   QueryClientProvider,
