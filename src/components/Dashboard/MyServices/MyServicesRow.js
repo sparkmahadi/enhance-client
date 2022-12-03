@@ -1,11 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const MyServicesRow = ({service, idx}) => {
+const MyServicesRow = ({service, idx, handleDeleteService}) => {
     const {description, img, name, price, _id} = service;
-    const handleDeleteService = id =>{
-
-    }
     return (
         <tr className="">
             <th scope="row" className=" font-medium">
@@ -24,8 +21,8 @@ const MyServicesRow = ({service, idx}) => {
                 {price}
             </td>
             <td className=" md:flex">
-                <Link to={`/review/${_id}`}><button className='btn btn-success btn-sm text-white mr-2'>Update</button></Link>
-                <button onClick={()=>handleDeleteService(_id)} className='btn btn-sm btn-error text-white'>Delete</button>
+                <Link to={`/dashboard/services/update/${_id}`}><button className='btn btn-success btn-sm text-white mr-2'>Update</button></Link>
+                <button onClick={()=>handleDeleteService(_id, name)} className='btn btn-sm btn-error text-white'>Delete</button>
             </td>
         </tr>
     );

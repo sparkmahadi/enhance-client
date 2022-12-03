@@ -19,6 +19,7 @@ import MyServices from './../components/Dashboard/MyServices/MyServices';
 import AdminRoute from "./AdminRoute";
 import Payment from "../components/Dashboard/Payment/Payment";
 import UpdateReview from './../components/Dashboard/MyReviews/UpdateReview';
+import UpdateService from './../components/Dashboard/MyServices/UpdateService';
 
 const router = createBrowserRouter([
     {
@@ -99,6 +100,11 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/myServices',
                 element: <AdminRoute><MyServices></MyServices></AdminRoute>
+            },
+            {
+                path: '/dashboard/services/update/:id',
+                element: <AdminRoute><UpdateService></UpdateService></AdminRoute>,
+                loader: ({params}) => fetch(`https://enhance-server.vercel.app/services/${params.id}`)
             },
             {
                 path: '/dashboard/allBuyers',

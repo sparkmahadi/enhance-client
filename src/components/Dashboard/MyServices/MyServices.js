@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import Spinner from '../../Spinner/Spinner';
 import MyServicesRow from './MyServicesRow';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const MyServices = () => {
     const {data: services, isLoading, refetch} = useQuery({
@@ -15,8 +16,21 @@ const MyServices = () => {
         }
     })
 
-    const handleDeleteService = (serviceId) =>{
-        console.log(serviceId);
+    const handleDeleteService = (serviceId, serviceName) =>{
+        const agree = window.confirm(`Are you sure to delete the service "${serviceName}"?`)
+        if(agree){    
+            fetch(`https://enhance-server.vercel.app/services/${serviceId}`, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount > 0) {
+                        toast.success("Service is deleted successfully!!!")
+                        console.log(data);
+                        refetch();
+                    }
+                })
+        }
     }
     return (
         <div className='sm:max-w-xl md:max-w-full lg:max-w-screen-xl mx-auto min-h-screen'>
@@ -60,6 +74,7 @@ const MyServices = () => {
                                         key={service._id}
                                         idx={idx+1}
                                         service={service}
+                                        handleDeleteService={handleDeleteService}
                                     ></MyServicesRow>)
                                 }
                             </tbody>
@@ -76,8 +91,8 @@ const MyServices = () => {
                                             <li><span className='font-semibold'>My Comments : </span> {service.description}</li>
                                             <li>Actions:
                                                 <div className='px'>
-                                                <button onClick={() => handleDeleteService(service._id)} className='btn bg-red-800 p-1 md:p-2 rounded-lg text-white mr-2 mb-2 md:mb-0'>Delete</button>
-                                                <Link to={`/review/${service._id}`}><button className='btn bg-green-800 p-1 md:p-2 rounded-lg text-white'>Edit</button></Link>
+                                                <button onClick={() => handleDeleteService(service._id, service.serviceName)} className='btn bg-red-800 p-1 md:p-2 rounded-lg text-white mr-2 mb-2 md:mb-0'>Delete</button>
+                                                <Link to={`/dashboard/services/update/${service._id}`}><button className='btn bg-green-800 p-1 md:p-2 rounded-lg text-white'>Edit</button></Link>
                                                 </div>
                                             </li>
                                         </ul>

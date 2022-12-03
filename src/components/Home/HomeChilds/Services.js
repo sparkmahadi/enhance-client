@@ -12,7 +12,7 @@ const Services = ({ service, setLoading }) => {
         setLoading(false);
     },[setLoading])
     return (
-        <div className='mx-auto shadow-xl'>
+        <div data-aos='fade-up' className='mx-auto shadow-xl'>
             
             <div className="lg:max-w-sm min-h-full p-6 rounded-md shadow-md bg-card">
                 <PhotoProvider>

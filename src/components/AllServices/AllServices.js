@@ -1,5 +1,4 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
 import Services from '../Home/HomeChilds/Services';
 import { Helmet } from 'react-helmet-async';
 import { useState } from 'react';
@@ -8,16 +7,13 @@ import { useEffect } from 'react';
 
 const AllServices = () => {
     const [loading, setLoading] = useState(true);
-    // const services = useLoaderData();
     const [services, setServices] = useState([]);
     useEffect(()=>{
         setLoading(true);
-        
         fetch('https://enhance-server.vercel.app/services')
         .then(res => res.json())
         .then(data => setServices(data));
-
-        // setLoading(false);
+        setLoading(false);
     },[])
     return (
         <div className='sm:max-w-xl md:max-w-full lg:max-w-screen-xl p-5 md:p-10 lg:p-8 mx-5 md:mx-10 lg:mx-auto rounded-lg second-bg min-h-screen'>
