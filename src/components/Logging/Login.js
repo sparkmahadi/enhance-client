@@ -91,7 +91,7 @@ const Login = () => {
             <Helmet>
                 <title>Login - Enhance</title>
             </Helmet>
-            <h2 className='titles-bg p-2 text-white text-center text-2xl font-semibold'>Log in...</h2>
+            <h2 className='p-2 text-white text-center text-2xl font-semibold'>Log in...</h2>
 
             <div className='min-h-screen'>
                 {

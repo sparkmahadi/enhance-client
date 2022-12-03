@@ -74,7 +74,7 @@ const Profile = () => {
                     <label htmlFor="photoURL" className="block mb-2 text-lg font-medium">Your Photo URL</label>
                     <input type="text" name='photoURL' id="photoURL" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" defaultValue={photoURL} />
                 </div>
-                <button type="submit" className="btn btn-sm text-white">Update</button>
+                <button type="submit" className="btn btn-sm btn-success text-white">Update</button>
             </form>
         </div>
     );

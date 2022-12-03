@@ -16,7 +16,6 @@ import MyOrders from './../components/Dashboard/MyOrders/MyOrders';
 import AllBuyers from './../components/Dashboard/AllBuyers/AllBuyers';
 import AllReviews from './../components/Dashboard/AllReviews/AllReviews';
 import MyServices from './../components/Dashboard/MyServices/MyServices';
-import Consultation from "../components/ServiceDetails/Consultation";
 import AdminRoute from "./AdminRoute";
 import Payment from "../components/Dashboard/Payment/Payment";
 import UpdateReview from './../components/Dashboard/MyReviews/UpdateReview';
@@ -65,10 +64,6 @@ const router = createBrowserRouter([
             {
                 path: '*',
                 element: <ErrorPage></ErrorPage>
-            },
-            {
-                path: '/consultationAppointment',
-                element: <Consultation></Consultation>
             }
         ]
     },

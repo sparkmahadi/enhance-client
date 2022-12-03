@@ -39,17 +39,18 @@ const ServiceDetails = () => {
             <section>
 
                 <div className='m-5'>
-                    <div className="max-w-7xl mx-auto min-h-full p-6 rounded-md second-bg text-white">
-                        <h2 className='titles-bg text-white px-4 py-1 lg:py-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 text-xl lg:text-2xl uppercase text-center rounded-lg mb-2'>Service Details</h2>
-                        <h2 className="text-xl lg:text-2xl text-center pb-2 uppercase font-bold tracking-wide">{name}</h2>
-                        <img src={img} alt="" className="object-cover object-center w-full rounded-md bg-gray-500" />
-                        <div className="mt-6 mb-2">
+                    <div className="max-w-7xl mx-auto min-h-full p-6 rounded-md second-bg">
+                        <h2 className='font-semibold text-white px-4 py-1 lg:py-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 text-xl lg:text-2xl uppercase text-center rounded-lg mb-2'>Service Details</h2>
+                        <div className='relative'>
+                            <img src={img} alt="" className="object-cover object-center w-full rounded-md bg-gray-500" />
+                            <p className='font-semibold text-lg lg:text-xl text-center absolute top-5 left-5 bg-sky-700 py-2 px-3 rounded-lg text-white'>Price: {price} TK</p>
                         </div>
-                        <p className="text-md lg:text-lg px-2 mb-2">{description}</p>
-                        <p className='font-semibold text-xl lg:text-2xl text-center pt-2'>Price: {price} TK</p>
-                        <div className='flex justify-center items-center gap-5 mt-10'>
-                            <label onClick={()=>setServiceBooking(service)}  className="btn text-center cursor-pointer p-2 rounded-lg w-1/4 btn-bg" htmlFor="service-booking-modal">Book Now</label>
-                            <Link to='/consultationAppointment' className='btn p-2 rounded-lg w-1/4 btn-bg'>For Consultation</Link>
+                        <div className="mt-6 mb-2">
+                            <h2 className="text-lg lg:text-xl text-white text-center pb-2 uppercase font-bold tracking-wide">{name}</h2>
+                        </div>
+                        <p className="text-md lg:text-lg px-2 mb-2 text-white">{description}</p>
+                        <div className='flex justify-center items-center gap-5 mt-5'>
+                            <label onClick={() => setServiceBooking(service)} className="btn text-center cursor-pointer p-2 rounded-lg w-1/4 btn-bg" htmlFor="service-booking-modal">Book Now</label>
                         </div>
                     </div>
                 </div>
@@ -61,16 +62,16 @@ const ServiceDetails = () => {
             {/* review section */}
 
             <section className='max-w-7xl mx-auto min-h-full p-6 rounded-md second-bg text-white'>
-                <h2 className='titles-bg text-white px-4 py-1 lg:py-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 text-xl lg:text-2xl uppercase text-center rounded-lg'>Reviews</h2>
+                <h2 className='text-white px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 text-xl lg:text-2xl uppercase text-center rounded-lg mb-5 font-semibold'>Reviews</h2>
 
                 <div className='text-white'>
                     {
                         loadedReviews.length > 0 ?
-                            <div className='grid lg:grid-cols-2 my-10 gap-10'>
+                            <div className='grid lg:grid-cols-2 xl:grid-cols-3 mb-10 gap-10'>
                                 {loadedReviews.map((rvw, idx) => <ReviewDetails key={idx} rvw={rvw} ></ReviewDetails>)}
                             </div>
                             :
-                            <p className='text-center text-xl lg:text-2xl my-20 font-semibold'>No Reviews Yet...</p>
+                            <p className='text-center text-lg lg:text-xl my-10'>No Reviews Yet...</p>
                     }
 
                     {
@@ -86,8 +87,8 @@ const ServiceDetails = () => {
             {
                 serviceBooking &&
                 <BookingModal
-                serviceBooking={serviceBooking}
-                setServiceBooking={setServiceBooking}
+                    serviceBooking={serviceBooking}
+                    setServiceBooking={setServiceBooking}
                 ></BookingModal>
             }
         </div>

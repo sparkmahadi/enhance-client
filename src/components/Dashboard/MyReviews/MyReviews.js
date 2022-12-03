@@ -88,6 +88,7 @@ const MyReviews = () => {
                                             reviews.map(review => <MyReviewsRow
                                                 key={review._id}
                                                 review={review}
+                                                deleteHandlerForUI={deleteHandlerForUI}
                                             ></MyReviewsRow>)
                                         }
                                     </tbody>

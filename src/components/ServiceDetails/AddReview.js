@@ -6,21 +6,20 @@ import { AuthContext } from '../../contexts/UserContext';
 
 const AddReview = ({ id, name, reviewAddingHandler}) => {
     const { user } = useContext(AuthContext);
-
     const [userReview, setUserReview] = useState({});
 
-    useEffect(() => {
-        if (user.photoURL) {
-            const newReview = { ...userReview };
-            newReview.reviewerImg = user.photoURL;
-            setUserReview(newReview);
-        }
-        if (user.email) {
-            const newReview = { ...userReview };
-            newReview.reviewerEmail = user.email;
-            setUserReview(newReview);
-        }
-    }, [user.photoURL, user.email])
+    // useEffect(() => {
+    //     if (user.photoURL) {
+    //         const newReview = { ...userReview };
+    //         newReview.reviewerImg = user.photoURL;
+    //         setUserReview(newReview);
+    //     }
+    //     if (user.email) {
+    //         const newReview = { ...userReview };
+    //         newReview.reviewerEmail = user.email;
+    //         setUserReview(newReview);
+    //     }
+    // }, [user.photoURL, user.email])
 
 
 
@@ -58,18 +57,20 @@ const AddReview = ({ id, name, reviewAddingHandler}) => {
         newReview.reviewerName = user?.displayName;
         newReview.serviceId = id;
         newReview.serviceName = name;
+        newReview.reviewerEmail = user.email;
+        newReview.reviewerImg = user.photoURL;
         setUserReview(newReview);
     }
     return (
-        <div className='mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8'>
+        <div className='mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl'>
             <div className="flex flex-col p-8 shadow-sm rounded-xl lg:p-12 bg-slate-700 text-gray-100">
                 <div className="flex flex-col items-center w-full">
-                    <h2 className="text-3xl font-semibold text-center mb-5">Your opinion matters!</h2>
+                    <h2 className="text-xl lg:text-2xl text-center mb-5">Your opinion matters!</h2>
 
                     <div className="flex flex-col w-full">
                         <form onSubmit={handleAddReview}>
                             <input onBlur={handleInputChange} type="text" name='reviewTitle' className='mb-5 rounded-lg w-1/2 mx-auto block p-2 text-gray-100 bg-gray-800' placeholder='Your Feedback Title' required/>
-                            <textarea onBlur={handleInputChange} name='description' rows="3" placeholder="Comments..." className="resize-none text-gray-100 bg-gray-800 className='mb-5 rounded-lg w-1/2 mx-auto block p-2" required>
+                            <textarea onBlur={handleInputChange} name='description' rows="3" placeholder="Comments..." className=" text-gray-100 bg-gray-800 className='mb-5 rounded-lg w-1/2 mx-auto block p-2" required>
                             </textarea>
                             <button type="submit" className="px-4 py-2 my-8 font-semibold rounded-lg text-white btn-bg block mx-auto">Leave feedback</button>
                         </form>
