@@ -8,11 +8,7 @@ const stripePromise = loadStripe(process.env.REACT_APP_stripe_pk);
 
 const Payment = () => {
     const booking = useLoaderData();
-    // const navigation = useNavigation();
     const { serviceName, price, buyerLocation } = booking;
-    // if(navigation.state === "loading"){
-    //     return <div className='custom-align'><Spinner></Spinner></div>
-    // }
     return (
         <div className='flex justify-center bg-white rounded-lg p-3'>
             <div>

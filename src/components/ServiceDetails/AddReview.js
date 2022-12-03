@@ -1,36 +1,16 @@
 import React from 'react';
-import { useState, useContext, useEffect } from 'react';
+import { useState, useContext} from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from '../../contexts/UserContext';
 
-const AddReview = ({ id, name, reviewAddingHandler}) => {
+const AddReview = ({ id, name, reviewAddingHandler }) => {
     const { user } = useContext(AuthContext);
     const [userReview, setUserReview] = useState({});
 
-    // useEffect(() => {
-    //     if (user.photoURL) {
-    //         const newReview = { ...userReview };
-    //         newReview.reviewerImg = user.photoURL;
-    //         setUserReview(newReview);
-    //     }
-    //     if (user.email) {
-    //         const newReview = { ...userReview };
-    //         newReview.reviewerEmail = user.email;
-    //         setUserReview(newReview);
-    //     }
-    // }, [user.photoURL, user.email])
-
-
-
-
     const handleAddReview = event => {
         event.preventDefault();
-
-        // console.log(userReview);
-
         reviewAddingHandler(userReview);
-
         fetch(`https://enhance-server.vercel.app/services/${id}`, {
             method: 'POST',
             headers: {
@@ -69,7 +49,7 @@ const AddReview = ({ id, name, reviewAddingHandler}) => {
 
                     <div className="flex flex-col w-full">
                         <form onSubmit={handleAddReview}>
-                            <input onBlur={handleInputChange} type="text" name='reviewTitle' className='mb-5 rounded-lg w-1/2 mx-auto block p-2 text-gray-100 bg-gray-800' placeholder='Your Feedback Title' required/>
+                            <input onBlur={handleInputChange} type="text" name='reviewTitle' className='mb-5 rounded-lg w-1/2 mx-auto block p-2 text-gray-100 bg-gray-800' placeholder='Your Feedback Title' required />
                             <textarea onBlur={handleInputChange} name='description' rows="3" placeholder="Comments..." className=" text-gray-100 bg-gray-800 className='mb-5 rounded-lg w-1/2 mx-auto block p-2" required>
                             </textarea>
                             <button type="submit" className="px-4 py-2 my-8 font-semibold rounded-lg text-white btn-bg block mx-auto">Leave feedback</button>

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { useEffect } from 'react';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from '../../contexts/UserContext';
 import { Helmet } from 'react-helmet-async';

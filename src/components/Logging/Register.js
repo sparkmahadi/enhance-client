@@ -1,19 +1,21 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/UserContext';
 import { Helmet } from 'react-helmet-async';
 import Spinner from '../Spinner/Spinner';
 import { format } from 'date-fns'
 import { toast } from 'react-toastify';
+import useToken from '../../hooks/useToken';
+import { useEffect } from 'react';
 
 const Register = () => {
     const [error, setError] = useState('');
-    const { createNewUser, updateUserProfile, loading } = useContext(AuthContext);
     const [userEmail, setUserEmail] = useState('');
-    // const [token] = useSetToken(userEmail);
-    // const navigate = useNavigate();
-    // const location = useLocation();
-    // const from = location.state?.from?.pathname || '/';
+    const { createNewUser, updateUserProfile, loading } = useContext(AuthContext);
+    const [token] = useToken(userEmail);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -26,9 +28,7 @@ const Register = () => {
         const image = form.photo.files[0];
         const formData = new FormData();
         formData.append('image', image);
-        // const image = data.image[0];
         const url = `https://api.imgbb.com/1/upload?key=${process.env.REACT_APP_imgbb_key}`;
-
         fetch(url, {
             method: 'POST',
             body: formData
@@ -101,6 +101,11 @@ const Register = () => {
             })
     }
 
+    useEffect(() => {
+        if (token) {
+            navigate(from, { replace: true });
+        }
+    }, [token, userEmail])
     return (
         <div>
             <Helmet>
@@ -129,7 +134,7 @@ const Register = () => {
 
                                 <div className="mb-6">
                                     <label htmlFor="photoURL" className="block mb-2 text-lg font-medium">Your Photo</label>
-                                    <input type="file" name='photoURL' id="photo" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" placeholder="Enter Your Full Name" />
+                                    <input type="file" name='photoURL' id="photo" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" placeholder="Enter Your Full Name" required/>
                                 </div>
 
                                 <div className="mb-6">
