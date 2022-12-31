@@ -62,7 +62,7 @@ const MyReviews = () => {
                     :
 
                     reviews.length === 0 ?
-                        <p className='text-5xl mx-auto custom-align'>No reviews were added...</p>
+                        <p className='text-3xl text-white mx-auto custom-align'>No reviews were added...</p>
                         :
                         <div className="overflow-x-auto relative rounded-lg">
                             <div className="overflow-x-auto hidden md:block">

@@ -8,12 +8,17 @@ import { FcNeutralDecision } from 'react-icons/fc';
 import { GiDiscussion } from 'react-icons/gi';
 import { MdDesignServices } from 'react-icons/md';
 import { SiDeliveroo } from 'react-icons/si';
+import Contact from './HomeChilds/Contact';
+import OnlineDesign from './HomeChilds/OnlineDesign';
+import DesignGallery from './HomeChilds/DesignGallery';
+import OfficeDesign from './HomeChilds/OfficeDesign';
+import IsOnlineDesign from './HomeChilds/IsOnlineDesign';
 
 const Home = () => {
     const [loading, setLoading] = useState(true);
     const services = useLoaderData();
     return (
-        <div className='px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-10 lg:px-8 my-5'>
+        <div className='px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-10 lg:px-8 my-5 text-white'>
             <Helmet>
                 <title>Home - Enhance</title>
             </Helmet>
@@ -108,6 +113,12 @@ const Home = () => {
                     </div>
                 </div>
             </section>
+
+            <OnlineDesign></OnlineDesign>
+            <DesignGallery></DesignGallery>
+            <OfficeDesign></OfficeDesign>
+            <IsOnlineDesign></IsOnlineDesign>
+            <Contact></Contact>
 
 
         </div>

@@ -26,7 +26,7 @@ const AllServices = () => {
             <h2 className='text-white text-xl lg:text-2xl font-semibold mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-10 lg:px-8 uppercase text-center rounded-lg'>Services</h2>
             <div className='custom-align z-10'>
             {
-                loading ? <Spinner></Spinner>
+                loading ? <div className='custom-align'><Spinner></Spinner></div>
                 :
                 undefined
             }
